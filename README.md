@@ -55,6 +55,16 @@ public void Handle_ValueChanged(object o, EventArgs e)
 }
 ```
 
+**Bindable Properties**
+
+```TintColor```: Fill color for the control.
+
+```SelectedSegment```: As the name says :)
+
+**Event Handlers**
+
+```ValueChanged```: Called when a segment is selected.
+
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
 
