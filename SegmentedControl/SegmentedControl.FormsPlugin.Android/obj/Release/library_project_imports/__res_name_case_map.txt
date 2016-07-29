@@ -1,0 +1,7 @@
+color/segmented_control_text.xml;color/segmented_control_text.xml
+drawable/segmented_control_background.xml;drawable/segmented_control_background.xml
+drawable/segmented_control_first_background.xml;drawable/segmented_control_first_background.xml
+drawable/segmented_control_last_background.xml;drawable/segmented_control_last_background.xml
+layout/RadioButton.axml;layout/radiobutton.xml
+layout/RadioGroup.axml;layout/radiogroup.xml
+values/colors.xml;values/colors.xml

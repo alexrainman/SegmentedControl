@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Droid/Demo.Droid.csproj">
+  <MonoDevelop.Ide.ItemProperties.SegmentedControl.FormsPlugin.Android AndroidDesignerPreferredDevice="Nexus 4" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Demo/Views/DemoPage.xaml">
+    <Files>
+      <File FileName="Demo/Views/DemoPage.xaml" Line="5" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D6823497-D4AD-4479-9600-FB8732054029" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.192.168.57.101:5555" />
+  <DisabledProjects>
+    <String>SegmentedControl/SegmentedControl.FormsPlugin.UWP/SegmentedControl.FormsPlugin.UWP.csproj</String>
+  </DisabledProjects>
+</Properties>

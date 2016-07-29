@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>SegmentedControl.FormsPlugin</id>
+        <version>1.0.0</version>
+        <title>Segmented Control for Xamarin Forms</title>
+        <authors>Alex Rainman</authors>
+        <owners>Alex Rainman</owners>
+        <licenseUrl>https://github.com/alexrainman/SegmentedControl/blob/master/README.md</licenseUrl>
+        <projectUrl>https://github.com/alexrainman/SegmentedControl</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Segmented Control for Xamarin Forms</description>
+        <summary>Segmented Control for Xamarin Forms</summary>
+        <releaseNotes>https://github.com/alexrainman/SegmentedControl/commits</releaseNotes>
+        <tags>segmented control ios android uwp xamarin forms monotouch monodroid</tags>
+        <dependencies>
+			<group>
+				<dependency id="Xamarin.Forms" version="2.2.0.31"/>
+			</group>
+		</dependencies>
+    </metadata>
+    <files>
+        <!-- PCL -->
+        <file src="lib/SegmentedControl.FormsPlugin.Abstractions.dll" target="lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\SegmentedControl.FormsPlugin.Abstractions.dll" />
+
+        <!-- Xamarin.iOS (Unified)-->
+        <file src="lib/SegmentedControl.FormsPlugin.iOS.dll" target="lib\Xamarin.iOS10\SegmentedControl.FormsPlugin.iOS.dll" />
+        <file src="lib/SegmentedControl.FormsPlugin.Abstractions.dll" target="lib\Xamarin.iOS10\SegmentedControl.FormsPlugin.Abstractions.dll" />
+
+        <!-- Xamarin.Android -->
+        <file src="lib/SegmentedControl.FormsPlugin.Android.dll" target="lib\MonoAndroid\SegmentedControl.FormsPlugin.Android.dll" />
+        <file src="lib/SegmentedControl.FormsPlugin.Abstractions.dll" target="lib\MonoAndroid\SegmentedControl.FormsPlugin.Abstractions.dll" />
+    </files>
+</package>
