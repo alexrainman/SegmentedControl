@@ -57,9 +57,9 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 **Bindable Properties**
 
-```TintColor```: Fill color for the control.
+```TintColor```: Fill color for the control (Color, default #007AFF)
 
-```SelectedSegment```: As the name says :)
+```SelectedSegment```: Selected segment index (int, default 0).
 
 **Event Handlers**
 
