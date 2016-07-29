@@ -1,38 +1,59 @@
-# ModalPage Plugin for Xamarin Forms
+# Segmented Control Plugin for Xamarin Forms
 
 #### Setup
-* Available on NuGet: https://www.nuget.org/packages/Plugin.ModalPage/ [![NuGet](https://img.shields.io/nuget/v/Plugin.ModalPage.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.ModalPage/)
+* Available on NuGet: https://www.nuget.org/packages/SegmentedControl.FormsPlugin/ [![NuGet](https://img.shields.io/nuget/v/SegmentedControl.FormsPlugin.svg?label=NuGet)](https://www.nuget.org/packages/SegmentedControl.FormsPlugin/)
 * Install in your PCL project and Client projects.
 
 **Platform Support**
 
 |Platform|Supported|Version|Renderer|
 | ------------------- | :-----------: | :-----------: | :------------------: |
-|Xamarin.iOS Unified|Yes|iOS 8.1+|UIViewController|
-|Xamarin.Android|Yes|API 15+|AlertDialog|
+|Xamarin.iOS Unified|Yes|iOS 8.1+|UISegmentedControl|
+|Xamarin.Android|Yes|API 15+|RadioGroup|
 
 #### Usage
 
-Push a custom modal:
-
-```
-var view = new MyModalView();
-CrossModalPage.Current.PushCustomModal(view); // ContentView as parameter
+```xml
+xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
 ```
 
-Pop a custom modal:
+```xml
+<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="Handle_ValueChanged">
+  <controls:SegmentedControl.Children>
+    <controls:SegmentedControlOption Text="Tab 1" />
+    <controls:SegmentedControlOption Text="Tab 2" />
+    <controls:SegmentedControlOption Text="Tab 3" />
+    <controls:SegmentedControlOption Text="Tab 4" />
+  </controls:SegmentedControl.Children>
+</controls:SegmentedControl>
+<StackLayout x:Name="SegContent" Grid.Row="1" Grid.Column="0">
+</StackLayout>
+```
+
+#### Event handler
 
 ```
-CrossModalPage.Current.PopCustomModal();
+public void Handle_ValueChanged(object o, EventArgs e)
+{
+	SegContent.Children.Clear();
+
+	switch (SegControl.SelectedSegment)
+	{
+		case 0:
+			SegContent.Children.Add(new Label() { Text="Tab 1 selected" });
+			break;
+		case 1:
+			SegContent.Children.Add(new Label() { Text = "Tab 2 selected" });
+			break;
+		case 2:
+			SegContent.Children.Add(new Label() { Text = "Tab 3 selected" });
+			break;
+		case 3:
+			SegContent.Children.Add(new Label() { Text = "Tab 4 selected" });
+			break;
+	}
+}
 ```
-
-#### Known issues
-
-- You have to provide HeighRequest for elements like Label, Entry ... I still need to figure it out how to propagate request layout down to each children.
-
-- If you are worried about label height you can use this gist: [ITextMeter](https://gist.github.com/alexrainman/82b00160ab32bef9e69dee6d460f44fa)
-
-- Horizontal StackLayout doesn't works. Why? No idea :) You may use a multi-column Grid instead.
 
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
