@@ -20,6 +20,8 @@ Xamarin.Forms.Init();
 CarouselViewRenderer.Init();
 ```
 
+#### XAML
+
 ```xml
 xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
 ```
