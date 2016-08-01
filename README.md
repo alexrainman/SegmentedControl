@@ -13,6 +13,13 @@
 
 #### Usage
 
+In your iOS and Android projects call:
+
+```
+Xamarin.Forms.Init();
+CarouselViewRenderer.Init();
+```
+
 ```xml
 xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
 ```
