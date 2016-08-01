@@ -1,4 +1,3 @@
-using SegmentedControl.FormsPlugin.Abstractions;
 using System;
 using Xamarin.Forms;
 using SegmentedControl.FormsPlugin.Android;
@@ -6,21 +5,19 @@ using Xamarin.Forms.Platform.Android;
 using Android.Widget;
 using Android.Views;
 using Android.Graphics.Drawables;
-using Android.Content.Res;
-using AR = Android.Resource;
 
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
 {
-    /// <summary>
-    /// SegmentedControl Renderer
-    /// </summary>
-    public class SegmentedControlRenderer : ViewRenderer<SegmentedControl.FormsPlugin.Abstractions.SegmentedControl, RadioGroup>
+	/// <summary>
+	/// SegmentedControl Renderer
+	/// </summary>
+	public class SegmentedControlRenderer : ViewRenderer<Abstractions.SegmentedControl, RadioGroup>
 	{
 		RadioGroup nativeControl;
 		RadioButton _v;
 
-		protected override void OnElementChanged(ElementChangedEventArgs<SegmentedControl.FormsPlugin.Abstractions.SegmentedControl> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Abstractions.SegmentedControl> e)
 		{
 			base.OnElementChanged(e);
 
@@ -52,13 +49,8 @@ namespace SegmentedControl.FormsPlugin.Android
 					var o = e.NewElement.Children[i];
 					var v = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
 
-					v.SetWidth(Resources.DisplayMetrics.WidthPixels / 4 - 23);
+					v.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
 					v.Text = o.Text;
-
-					//int[][] states = new int[][] { new int[] { -AR.Attribute.StateChecked }, new int[] { -AR.Attribute.StateSelected } };
-					//int[] colors = new int[] { Resource.Color.highlight, Resource.Color.highlight };
-					//var csl = new ColorStateList(states, colors);
-					//v.SetTextColor(csl)
 
 					if (i == Element.SelectedSegment)
 					{

@@ -9,8 +9,8 @@
            <controls:SegmentedControl.Children>
                <controls:SegmentedControlOption Text="Items" />
                <controls:SegmentedControlOption Text="Notes" />
-               <controls:SegmentedControlOption Text="Approvers" />
-               <controls:SegmentedControlOption Text="Attachments" />
+               <!--<controls:SegmentedControlOption Text="Approvers" />
+               <controls:SegmentedControlOption Text="Attachments" />-->
            </controls:SegmentedControl.Children>
         </controls:SegmentedControl>
 		<StackLayout x:Name="SegContent" Grid.Row="1" Grid.Column="0">
