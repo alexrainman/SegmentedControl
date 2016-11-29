@@ -76,9 +76,9 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 **Methods**
 
-```SelectTab(index)```: change selected tab programmatically
+```SelectTab(int index)```: change selected tab programmatically
 
-```SetTintColor```: change tint color programmatically
+```SetTintColor(Color color)```: change tint color programmatically
 
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
