@@ -74,6 +74,12 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```ValueChanged```: Called when a segment is selected.
 
+**Methods**
+
+```SelectTab(index)```: change selected tab programmatically
+
+```SetTintColor```: change tint color programmatically
+
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
 
