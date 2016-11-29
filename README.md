@@ -17,7 +17,7 @@ In your iOS and Android projects call:
 
 ```
 Xamarin.Forms.Init();
-CarouselViewRenderer.Init();
+SegmentedControlRenderer.Init();
 ```
 
 #### XAML
