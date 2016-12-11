@@ -2,8 +2,8 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>/Users/AReyes27/Documents/Projects/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/AReyes27/Documents/Projects/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Desktop/GitHub/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Desktop/GitHub/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj/Release/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/assets</ResolvedAssetDirectory>
@@ -11,7 +11,7 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>/Users/AReyes27/Documents/Projects/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/AReyes27/Documents/Projects/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Desktop/GitHub/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Desktop/GitHub/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

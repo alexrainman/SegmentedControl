@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SegmentedControl.FormsPlugin</id>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
         <title>Segmented Control for Xamarin Forms</title>
         <authors>Alex Rainman</authors>
         <owners>Alex Rainman</owners>
@@ -11,7 +11,10 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Segmented Control for Xamarin Forms</description>
         <summary>Segmented Control for Xamarin Forms</summary>
-        <releaseNotes>https://github.com/alexrainman/SegmentedControl/commits</releaseNotes>
+        <releaseNotes>
+        1.2.1
+        [Android] Matching tint color behavior with iOS counterpart
+        </releaseNotes>
         <tags>segmented control ios android uwp xamarin forms monotouch monodroid</tags>
         <dependencies>
 			<group>

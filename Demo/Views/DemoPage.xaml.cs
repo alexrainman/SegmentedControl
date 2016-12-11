@@ -10,6 +10,8 @@ namespace Demo
 			InitializeComponent();
 
 			Title = "Segmented Control";
+
+			BackgroundColor = Color.Yellow;
 		}
 
 		public void Handle_ValueChanged(object o, EventArgs e)
@@ -39,7 +41,7 @@ namespace Demo
 
 			SegControl.SetTintColor(Color.Blue);
 
-			SegControl.SelectTab(1);
+			//SegControl.SelectTab(1);
 		}
 	}
 }

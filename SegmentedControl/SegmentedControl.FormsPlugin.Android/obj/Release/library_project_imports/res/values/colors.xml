@@ -1,1 +1,1 @@
-<resources><color name="normal">@android:color/transparent</color><color name="selected">#007AFF</color><color name="highlight">#FFFFFF</color></resources>
+<resources><color name="normal">@android:color/transparent</color><color name="selected">#007AFF</color></resources>

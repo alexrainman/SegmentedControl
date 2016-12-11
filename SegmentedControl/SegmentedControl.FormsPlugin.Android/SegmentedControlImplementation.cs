@@ -5,7 +5,6 @@ using Xamarin.Forms.Platform.Android;
 using Android.Widget;
 using Android.Views;
 using Android.Graphics.Drawables;
-using Android.Support.V4.Content;
 
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
@@ -55,7 +54,7 @@ namespace SegmentedControl.FormsPlugin.Android
 
 					if (i == Element.SelectedSegment)
 					{
-						v.SetTextColor(Color.White.ToAndroid());
+						v.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
 						_v = v;
 					}
 					else {
@@ -98,7 +97,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				var v = (RadioButton)nativeControl.GetChildAt(i);
 
 				if (i == Element.SelectedSegment)
-					v.SetTextColor(Color.White.ToAndroid());
+					v.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
 				else
 					v.SetTextColor(Element.TintColor.ToAndroid());
 				
@@ -116,7 +115,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				var radioId = rg.IndexOfChild(radioButton);
 				var btn = (RadioButton)rg.GetChildAt(radioId);
 				_v.SetTextColor(Element.TintColor.ToAndroid());
-				btn.SetTextColor(Color.White.ToAndroid());
+				btn.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
 				_v = btn;
 				var selection = btn.Text;
 				Element.SelectedSegment = radioId;

@@ -1086,32 +1086,32 @@ namespace SegmentedControl.FormsPlugin.Android
 		public partial class Color
 		{
 			
+			// aapt resource value: 0x7f0a004a
+			public static int abc_background_cache_hint_selector_material_dark = 2131361866;
+			
 			// aapt resource value: 0x7f0a004b
-			public static int abc_background_cache_hint_selector_material_dark = 2131361867;
+			public static int abc_background_cache_hint_selector_material_light = 2131361867;
 			
 			// aapt resource value: 0x7f0a004c
-			public static int abc_background_cache_hint_selector_material_light = 2131361868;
-			
-			// aapt resource value: 0x7f0a004d
-			public static int abc_color_highlight_material = 2131361869;
+			public static int abc_color_highlight_material = 2131361868;
 			
 			// aapt resource value: 0x7f0a000e
 			public static int abc_input_method_navigation_guard = 2131361806;
 			
+			// aapt resource value: 0x7f0a004d
+			public static int abc_primary_text_disable_only_material_dark = 2131361869;
+			
 			// aapt resource value: 0x7f0a004e
-			public static int abc_primary_text_disable_only_material_dark = 2131361870;
+			public static int abc_primary_text_disable_only_material_light = 2131361870;
 			
 			// aapt resource value: 0x7f0a004f
-			public static int abc_primary_text_disable_only_material_light = 2131361871;
+			public static int abc_primary_text_material_dark = 2131361871;
 			
 			// aapt resource value: 0x7f0a0050
-			public static int abc_primary_text_material_dark = 2131361872;
+			public static int abc_primary_text_material_light = 2131361872;
 			
 			// aapt resource value: 0x7f0a0051
-			public static int abc_primary_text_material_light = 2131361873;
-			
-			// aapt resource value: 0x7f0a0052
-			public static int abc_search_url_text = 2131361874;
+			public static int abc_search_url_text = 2131361873;
 			
 			// aapt resource value: 0x7f0a000f
 			public static int abc_search_url_text_normal = 2131361807;
@@ -1122,11 +1122,11 @@ namespace SegmentedControl.FormsPlugin.Android
 			// aapt resource value: 0x7f0a0011
 			public static int abc_search_url_text_selected = 2131361809;
 			
-			// aapt resource value: 0x7f0a0053
-			public static int abc_secondary_text_material_dark = 2131361875;
+			// aapt resource value: 0x7f0a0052
+			public static int abc_secondary_text_material_dark = 2131361874;
 			
-			// aapt resource value: 0x7f0a0054
-			public static int abc_secondary_text_material_light = 2131361876;
+			// aapt resource value: 0x7f0a0053
+			public static int abc_secondary_text_material_light = 2131361875;
 			
 			// aapt resource value: 0x7f0a0012
 			public static int accent_material_dark = 2131361810;
@@ -1230,9 +1230,6 @@ namespace SegmentedControl.FormsPlugin.Android
 			// aapt resource value: 0x7f0a0025
 			public static int foreground_material_light = 2131361829;
 			
-			// aapt resource value: 0x7f0a004a
-			public static int highlight = 2131361866;
-			
 			// aapt resource value: 0x7f0a0026
 			public static int highlighted_text_material_dark = 2131361830;
 			
@@ -1326,8 +1323,8 @@ namespace SegmentedControl.FormsPlugin.Android
 			// aapt resource value: 0x7f0a0043
 			public static int secondary_text_disabled_material_light = 2131361859;
 			
-			// aapt resource value: 0x7f0a0055
-			public static int segmented_control_text = 2131361877;
+			// aapt resource value: 0x7f0a0054
+			public static int segmented_control_text = 2131361876;
 			
 			// aapt resource value: 0x7f0a0049
 			public static int selected = 2131361865;
@@ -1338,11 +1335,11 @@ namespace SegmentedControl.FormsPlugin.Android
 			// aapt resource value: 0x7f0a0045
 			public static int switch_thumb_disabled_material_light = 2131361861;
 			
-			// aapt resource value: 0x7f0a0056
-			public static int switch_thumb_material_dark = 2131361878;
+			// aapt resource value: 0x7f0a0055
+			public static int switch_thumb_material_dark = 2131361877;
 			
-			// aapt resource value: 0x7f0a0057
-			public static int switch_thumb_material_light = 2131361879;
+			// aapt resource value: 0x7f0a0056
+			public static int switch_thumb_material_light = 2131361878;
 			
 			// aapt resource value: 0x7f0a0046
 			public static int switch_thumb_normal_material_dark = 2131361862;
