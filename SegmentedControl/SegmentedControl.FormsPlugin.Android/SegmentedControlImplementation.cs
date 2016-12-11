@@ -5,6 +5,7 @@ using Xamarin.Forms.Platform.Android;
 using Android.Widget;
 using Android.Views;
 using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
 
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
@@ -76,6 +77,32 @@ namespace SegmentedControl.FormsPlugin.Android
 				e.NewElement.SelectedText = e.NewElement.Children[Element.SelectedSegment].Text;
 
 				nativeControl.CheckedChange += NativeControl_CheckedChange;
+
+				Element.SelectTabAction = new Action<int>(Element_SelectTab);
+				Element.SetTintColorAction = new Action<Color>(Element_SetTintColor);
+			}
+		}
+
+        void Element_SelectTab (int index)
+		{
+			var newoption = (RadioButton)nativeControl.GetChildAt(index);
+			nativeControl.Check(newoption.Id);
+		}
+
+		void Element_SetTintColor(Color color)
+		{
+			Element.TintColor = color;
+
+			for (var i = 0; i < Element.Children.Count; i++)
+			{
+				var v = (RadioButton)nativeControl.GetChildAt(i);
+
+				if (i == Element.SelectedSegment)
+					v.SetTextColor(Color.White.ToAndroid());
+				else
+					v.SetTextColor(Element.TintColor.ToAndroid());
+				
+				SetTintColor(i, v);
 			}
 		}
 
@@ -93,7 +120,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				_v = btn;
 				var selection = btn.Text;
 				Element.SelectedSegment = radioId;
-				Element.SelectedText = selection;
+				Element.SelectedText = selection; // this will call ValueChanged in PCL
 			}
 		}
 
@@ -113,7 +140,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			else {
 				var selectedItem = (InsetDrawable)children[0];
 				var unselectedItem = (InsetDrawable)children[1];
-				selectedShape = (GradientDrawable)selectedItem.Drawable;
+				selectedShape = (GradientDrawable)selectedItem.Drawable;  // TODO: not working on API 18
 				unselectedShape = (GradientDrawable)unselectedItem.Drawable;
 			}
 

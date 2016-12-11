@@ -16,6 +16,7 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			Children = new List<SegmentedControlOption>();
 		}
 
+		// PCL event handler
 		public event ValueChangedEventHandler ValueChanged;
 		public delegate void ValueChangedEventHandler(object sender, EventArgs e);
 
@@ -23,8 +24,12 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 
 		public int SelectedSegment
 		{
-			get { return (int)GetValue(SelectedSegmentProperty); }
-			set { SetValue(SelectedSegmentProperty, value); }
+			get { 
+				return (int)GetValue(SelectedSegmentProperty); 
+			}
+			set { 
+				SetValue(SelectedSegmentProperty, value);
+			}
 		}
 
 		private string _selectedText;
@@ -48,6 +53,20 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 		{
 			get { return (Color)GetValue(TintColorProperty); }
 			set { SetValue(TintColorProperty, value); }
+		}
+
+		public Action<int> SelectTabAction;
+		public void SelectTab(int position)
+		{
+			if (SelectTabAction != null)
+				SelectTabAction(position);
+		}
+
+		public Action<Color> SetTintColorAction;
+		public void SetTintColor(Color color)
+		{
+			if (SetTintColorAction != null)
+				SetTintColorAction(color);
 		}
     }
 

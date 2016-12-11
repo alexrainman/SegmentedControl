@@ -32,6 +32,15 @@ namespace Demo
 					break;
 			}
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			SegControl.SetTintColor(Color.Blue);
+
+			SegControl.SelectTab(1);
+		}
 	}
 }
 

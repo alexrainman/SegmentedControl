@@ -33,7 +33,7 @@ namespace SegmentedControl.FormsPlugin.iOS
 				// Unsubscribe from event handlers and cleanup any resources
 
 				if (nativeControl != null)
-				    nativeControl.ValueChanged -= nativeControl_ValueChanged;
+				    nativeControl.ValueChanged -= nativeControl_CheckedChange;
 			}
 
 			if (e.NewElement != null)
@@ -50,14 +50,29 @@ namespace SegmentedControl.FormsPlugin.iOS
 				nativeControl.SelectedSegment = Element.SelectedSegment;
 				e.NewElement.SelectedText = e.NewElement.Children[0].Text;
 
-				nativeControl.ValueChanged += nativeControl_ValueChanged;
+				nativeControl.ValueChanged += nativeControl_CheckedChange;
+
+				Element.SelectTabAction = new Action<int>(Element_SelectTab);
+				Element.SetTintColorAction = new Action<Color>(Element_SetTintColor);
 			}
 		}
 
-		void nativeControl_ValueChanged(object sender, EventArgs e)
+        void Element_SelectTab (int index)
+		{
+			nativeControl.SelectedSegment = index;
+			nativeControl_CheckedChange(nativeControl, null);
+		}
+
+		void Element_SetTintColor(Color color)
+		{
+			Element.TintColor = color;
+			nativeControl.TintColor = color.ToUIColor();
+		}
+
+		void nativeControl_CheckedChange(object sender, EventArgs e)
 		{
 			Element.SelectedSegment = (int)nativeControl.SelectedSegment;
-			Element.SelectedText = nativeControl.TitleAt(nativeControl.SelectedSegment);
+			Element.SelectedText = nativeControl.TitleAt(nativeControl.SelectedSegment); // this will call ValueChanged in PCL
 		}
 
 		protected override void Dispose(bool disposing)
