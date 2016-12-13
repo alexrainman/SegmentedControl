@@ -131,17 +131,14 @@ namespace SegmentedControl.FormsPlugin.Android
 			var gradientDrawable = (StateListDrawable)button.Background;
 			var drawableContainerState = (DrawableContainer.DrawableContainerState)gradientDrawable.GetConstantState();
 			var children = drawableContainerState.GetChildren();
-			if (index == Element.Children.Count - 1)
-			{
-				selectedShape = (GradientDrawable)children[0];
-				unselectedShape = (GradientDrawable)children[1];
-			}
-			else {
-				var selectedItem = (InsetDrawable)children[0];
-				var unselectedItem = (InsetDrawable)children[1];
-				selectedShape = (GradientDrawable)selectedItem.Drawable;  // TODO: not working on API 18
-				unselectedShape = (GradientDrawable)unselectedItem.Drawable;
-			}
+			
+			selectedShape = children[0] is GradientDrawable 
+				? (GradientDrawable)children[0] 
+				: (GradientDrawable)((InsetDrawable)children[0]).Drawable;
+			
+			unselectedShape = children[1] is GradientDrawable 
+				? (GradientDrawable)children[1] 
+				: (GradientDrawable)((InsetDrawable)children[1]).Drawable;
 
 			selectedShape.SetStroke(3, Element.TintColor.ToAndroid());
 			selectedShape.SetColor(Element.TintColor.ToAndroid());
