@@ -54,7 +54,7 @@ namespace SegmentedControl.FormsPlugin.Android
 
 					if (i == Element.SelectedSegment)
 					{
-						v.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
+						v.SetTextColor(Element.SelectedTextColor.ToAndroid());
 						_v = v;
 					}
 					else {
@@ -97,7 +97,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				var v = (RadioButton)nativeControl.GetChildAt(i);
 
 				if (i == Element.SelectedSegment)
-					v.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
+					v.SetTextColor(Element.SelectedTextColor.ToAndroid());
 				else
 					v.SetTextColor(Element.TintColor.ToAndroid());
 				
@@ -115,7 +115,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				var radioId = rg.IndexOfChild(radioButton);
 				var btn = (RadioButton)rg.GetChildAt(radioId);
 				_v.SetTextColor(Element.TintColor.ToAndroid());
-				btn.SetTextColor(Color.FromHex("#ffffff00").ToAndroid());
+				btn.SetTextColor(Element.SelectedTextColor.ToAndroid());
 				_v = btn;
 				var selection = btn.Text;
 				Element.SelectedSegment = radioId;
@@ -131,17 +131,19 @@ namespace SegmentedControl.FormsPlugin.Android
 			var gradientDrawable = (StateListDrawable)button.Background;
 			var drawableContainerState = (DrawableContainer.DrawableContainerState)gradientDrawable.GetConstantState();
 			var children = drawableContainerState.GetChildren();
-			if (index == Element.Children.Count - 1)
-			{
-				selectedShape = (GradientDrawable)children[0];
-				unselectedShape = (GradientDrawable)children[1];
-			}
-			else {
-				var selectedItem = (InsetDrawable)children[0];
+			//if (index == Element.Children.Count - 1)
+			//{
+				//selectedShape = (GradientDrawable)children[0];
+				//unselectedShape = (GradientDrawable)children[1];
+			//}
+			//else {
+				/*var selectedItem = (InsetDrawable)children[0];
 				var unselectedItem = (InsetDrawable)children[1];
 				selectedShape = (GradientDrawable)selectedItem.Drawable;  // TODO: not working on API 18
-				unselectedShape = (GradientDrawable)unselectedItem.Drawable;
-			}
+				unselectedShape = (GradientDrawable)unselectedItem.Drawable;*/
+				selectedShape = children[0] is GradientDrawable ? (GradientDrawable)children[0] : (GradientDrawable)((InsetDrawable)children[0]).Drawable;
+				unselectedShape = children[1] is GradientDrawable ? (GradientDrawable)children[1] : (GradientDrawable)((InsetDrawable)children[1]).Drawable;
+			//}
 
 			selectedShape.SetStroke(3, Element.TintColor.ToAndroid());
 			selectedShape.SetColor(Element.TintColor.ToAndroid());

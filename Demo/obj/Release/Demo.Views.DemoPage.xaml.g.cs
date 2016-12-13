@@ -17,6 +17,9 @@ namespace Demo {
     public partial class DemoPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout segContainer;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::SegmentedControl.FormsPlugin.Abstractions.SegmentedControl SegControl;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -25,6 +28,7 @@ namespace Demo {
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(DemoPage));
+            segContainer = this.FindByName <global::Xamarin.Forms.StackLayout>("segContainer");
             SegControl = this.FindByName <global::SegmentedControl.FormsPlugin.Abstractions.SegmentedControl>("SegControl");
             SegContent = this.FindByName <global::Xamarin.Forms.StackLayout>("SegContent");
         }

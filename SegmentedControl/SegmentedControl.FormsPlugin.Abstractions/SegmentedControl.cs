@@ -55,6 +55,14 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(TintColorProperty, value); }
 		}
 
+		public static readonly BindableProperty SelectedTextColorProperty = BindableProperty.Create("SelectedTextColor", typeof(Color), typeof(SegmentedControl), Color.FromHex("#FFFFFF"));
+
+		public Color SelectedTextColor
+		{
+			get { return (Color)GetValue(SelectedTextColorProperty); }
+			set { SetValue(SelectedTextColorProperty, value); }
+		}
+
 		public Action<int> SelectTabAction;
 		public void SelectTab(int position)
 		{

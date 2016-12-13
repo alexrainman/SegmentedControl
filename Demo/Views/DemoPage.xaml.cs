@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Demo
@@ -10,6 +11,14 @@ namespace Demo
 			InitializeComponent();
 
 			Title = "Segmented Control";
+
+			/*var segControl = new SegmentedControl.FormsPlugin.Abstractions.SegmentedControl() { 
+				Children = new List<SegmentedControl.FormsPlugin.Abstractions.SegmentedControlOption>() { 
+					new SegmentedControl.FormsPlugin.Abstractions.SegmentedControlOption() { Text = "ONE" },
+					new SegmentedControl.FormsPlugin.Abstractions.SegmentedControlOption() { Text = "TWO" }
+				} 
+			};
+			segContainer.Children.Insert(0, segControl);*/
 
 			BackgroundColor = Color.Yellow;
 		}

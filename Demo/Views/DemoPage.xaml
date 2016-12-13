@@ -4,8 +4,8 @@
 	x:Class="Demo.DemoPage"
 	xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions">
 
-	<StackLayout Padding="12" Spacing="12">
-		<controls:SegmentedControl x:Name="SegControl" TintColor="Purple" ValueChanged="Handle_ValueChanged">
+	<StackLayout x:Name="segContainer" Padding="12" Spacing="12">
+		<controls:SegmentedControl x:Name="SegControl" TintColor="Purple" SelectedTextColor="Yellow" ValueChanged="Handle_ValueChanged">
            <controls:SegmentedControl.Children>
                <controls:SegmentedControlOption Text="Items" />
                <controls:SegmentedControlOption Text="Notes" />
