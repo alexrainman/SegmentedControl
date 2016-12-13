@@ -68,6 +68,8 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```TintColor```: Fill color for the control (Color, default #007AFF)
 
+```SelectedTextColor```: selected segment text color (Color, default #FFFFFF, Android only)
+
 ```SelectedSegment```: Selected segment index (int, default 0).
 
 **Event Handlers**
