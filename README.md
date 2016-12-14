@@ -82,6 +82,9 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```SetTintColor(Color color)```: change tint color programmatically
 
+#### Roadmap
+* UWP support
+
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
 
