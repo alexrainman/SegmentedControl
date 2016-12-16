@@ -21,6 +21,10 @@ namespace Demo
 			segContainer.Children.Insert(0, segControl);*/
 
 			BackgroundColor = Color.Yellow;
+
+			SegContent.GestureRecognizers.Add(new TapGestureRecognizer((obj) => {
+				SegControl.IsEnabled = !SegControl.IsEnabled;
+			}));
 		}
 
 		public void Handle_ValueChanged(object o, EventArgs e)
@@ -50,7 +54,7 @@ namespace Demo
 
 			SegControl.SetTintColor(Color.Blue);
 
-			//SegControl.SelectTab(1);
+			SegControl.SelectTab(1);
 		}
 	}
 }

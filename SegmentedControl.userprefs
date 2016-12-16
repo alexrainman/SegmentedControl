@@ -1,18 +1,19 @@
-﻿<Properties StartupItem="Droid/Demo.Droid.csproj">
+﻿<Properties StartupConfiguration="{80C7503B-92FB-4847-978C-A37AD2139767}|Default">
   <MonoDevelop.Ide.ItemProperties.SegmentedControl.FormsPlugin.Android AndroidDesignerPreferredDevice="Nexus 4" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Demo/Views/DemoPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="nuget/SegmentedControl.nuspec">
     <Files>
-      <File FileName="Demo/Views/DemoPage.xaml" Line="5" Column="2" />
+      <File FileName="Demo/Views/DemoPage.xaml" Line="8" Column="67" />
+      <File FileName="Demo/Views/DemoPage.xaml.cs" Line="26" Column="29" />
+      <File FileName="SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/SegmentedControl.cs" Line="25" Column="14" />
+      <File FileName="SegmentedControl/SegmentedControl.FormsPlugin.Android/SegmentedControlImplementation.cs" Line="153" Column="19" />
+      <File FileName="nuget/SegmentedControl.nuspec" Line="16" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D6823497-D4AD-4479-9600-FB8732054029" />
+  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.91BE1221-5DE2-4D72-AD85-4FC44EF0C561" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.192.168.57.101:5555" />
-  <DisabledProjects>
-    <String>SegmentedControl/SegmentedControl.FormsPlugin.UWP/SegmentedControl.FormsPlugin.UWP.csproj</String>
-  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.192.168.56.101:5555" />
 </Properties>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SegmentedControl.FormsPlugin</id>
-        <version>1.2.2</version>
+        <version>1.2.4</version>
         <title>Segmented Control for Xamarin Forms</title>
         <authors>Alex Rainman</authors>
         <owners>Alex Rainman</owners>
@@ -12,6 +12,10 @@
         <description>Segmented Control for Xamarin Forms</description>
         <summary>Segmented Control for Xamarin Forms</summary>
         <releaseNotes>
+        1.2.4
+        [Android] #14 IsEnabled has no effect on Android (fixed)
+        1.2.3
+        [Android] #14 IsEnabled has no effect on Android (fixed)
         1.2.2
         [Android] Adding SelectedTextColor property to match iOS control behavior
         [Android] Fixing bug #11 Invalid cast exception. Android platform

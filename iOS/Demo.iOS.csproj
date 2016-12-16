@@ -9,7 +9,7 @@
     <RootNamespace>Demo.iOS</RootNamespace>
     <AssemblyName>Demo.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <ReleaseVersion>1.2.2</ReleaseVersion>
+    <ReleaseVersion>1.2.4</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>

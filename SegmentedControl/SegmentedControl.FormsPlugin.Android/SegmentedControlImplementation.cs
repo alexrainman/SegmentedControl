@@ -29,6 +29,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				// the SetNativeControl method
 
 				nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
+
 				SetNativeControl(nativeControl);
 			}
 
@@ -52,21 +53,12 @@ namespace SegmentedControl.FormsPlugin.Android
 					v.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
 					v.Text = o.Text;
 
-					if (i == Element.SelectedSegment)
-					{
-						v.SetTextColor(Element.SelectedTextColor.ToAndroid());
-						_v = v;
-					}
-					else {
-						v.SetTextColor(Element.TintColor.ToAndroid());
-					}
+					ConfigureRadioButton(i, v);
 
 					if (i == 0)
 						v.SetBackgroundResource(Resource.Drawable.segmented_control_first_background);
 					else if (i == e.NewElement.Children.Count - 1)
 						v.SetBackgroundResource(Resource.Drawable.segmented_control_last_background);
-
-					SetTintColor(i, v);
 
 					nativeControl.AddView(v);
 				}
@@ -79,6 +71,18 @@ namespace SegmentedControl.FormsPlugin.Android
 
 				Element.SelectTabAction = new Action<int>(Element_SelectTab);
 				Element.SetTintColorAction = new Action<Color>(Element_SetTintColor);
+			}
+		}
+
+		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			base.OnElementPropertyChanged(sender, e);
+
+			switch (e.PropertyName)
+			{
+				case "IsEnabled":
+					Element_SetTintColor(Element.TintColor);;
+					break;
 			}
 		}
 
@@ -96,12 +100,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				var v = (RadioButton)nativeControl.GetChildAt(i);
 
-				if (i == Element.SelectedSegment)
-					v.SetTextColor(Element.SelectedTextColor.ToAndroid());
-				else
-					v.SetTextColor(Element.TintColor.ToAndroid());
-				
-				SetTintColor(i, v);
+				ConfigureRadioButton(i, v);
 			}
 		}
 
@@ -113,14 +112,33 @@ namespace SegmentedControl.FormsPlugin.Android
 				var id = rg.CheckedRadioButtonId;
 				var radioButton = rg.FindViewById(id);
 				var radioId = rg.IndexOfChild(radioButton);
-				var btn = (RadioButton)rg.GetChildAt(radioId);
-				_v.SetTextColor(Element.TintColor.ToAndroid());
-				btn.SetTextColor(Element.SelectedTextColor.ToAndroid());
-				_v = btn;
-				var selection = btn.Text;
+				var v = (RadioButton)rg.GetChildAt(radioId);
+
+				var color = Element.IsEnabled ? Element.TintColor.ToAndroid() : Color.Gray.ToAndroid();
+				_v.SetTextColor(color);
+				v.SetTextColor(Element.SelectedTextColor.ToAndroid());
+				_v = v;
+
 				Element.SelectedSegment = radioId;
-				Element.SelectedText = selection; // this will call ValueChanged in PCL
+				Element.SelectedText = v.Text; // this will call ValueChanged in PCL
 			}
+		}
+
+		void ConfigureRadioButton(int i, RadioButton v)
+		{
+			if (i == Element.SelectedSegment)
+			{
+				v.SetTextColor(Element.SelectedTextColor.ToAndroid());
+				_v = v;
+			}
+			else {
+				var textColor = Element.IsEnabled ? Element.TintColor.ToAndroid() : Color.Gray.ToAndroid();
+				v.SetTextColor(textColor);
+			}
+
+			SetTintColor(i, v);
+
+			v.Enabled = Element.IsEnabled;
 		}
 
 		void SetTintColor(int index, RadioButton button)
@@ -131,23 +149,16 @@ namespace SegmentedControl.FormsPlugin.Android
 			var gradientDrawable = (StateListDrawable)button.Background;
 			var drawableContainerState = (DrawableContainer.DrawableContainerState)gradientDrawable.GetConstantState();
 			var children = drawableContainerState.GetChildren();
-			//if (index == Element.Children.Count - 1)
-			//{
-				//selectedShape = (GradientDrawable)children[0];
-				//unselectedShape = (GradientDrawable)children[1];
-			//}
-			//else {
-				/*var selectedItem = (InsetDrawable)children[0];
-				var unselectedItem = (InsetDrawable)children[1];
-				selectedShape = (GradientDrawable)selectedItem.Drawable;  // TODO: not working on API 18
-				unselectedShape = (GradientDrawable)unselectedItem.Drawable;*/
-				selectedShape = children[0] is GradientDrawable ? (GradientDrawable)children[0] : (GradientDrawable)((InsetDrawable)children[0]).Drawable;
-				unselectedShape = children[1] is GradientDrawable ? (GradientDrawable)children[1] : (GradientDrawable)((InsetDrawable)children[1]).Drawable;
-			//}
 
-			selectedShape.SetStroke(3, Element.TintColor.ToAndroid());
-			selectedShape.SetColor(Element.TintColor.ToAndroid());
-			unselectedShape.SetStroke(3, Element.TintColor.ToAndroid());
+			// Doesnt works on API < 18
+			selectedShape = children[0] is GradientDrawable ? (GradientDrawable)children[0] : (GradientDrawable)((InsetDrawable)children[0]).Drawable;
+			unselectedShape = children[1] is GradientDrawable ? (GradientDrawable)children[1] : (GradientDrawable)((InsetDrawable)children[1]).Drawable;
+
+			var color = Element.IsEnabled ? Element.TintColor.ToAndroid() : Color.Gray.ToAndroid();
+
+			selectedShape.SetStroke(3, color);
+			selectedShape.SetColor(color);
+			unselectedShape.SetStroke(3, color);
 		}
 
 		protected override void Dispose(bool disposing)
