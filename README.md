@@ -68,6 +68,8 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```TintColor```: Fill color for the control (Color, default #007AFF)
 
+```SelectedTextColor```: selected segment text color (Color, default #FFFFFF, Android only)
+
 ```SelectedSegment```: Selected segment index (int, default 0).
 
 **Event Handlers**
@@ -79,6 +81,11 @@ public void Handle_ValueChanged(object o, EventArgs e)
 ```SelectTab(int index)```: change selected tab programmatically
 
 ```SetTintColor(Color color)```: change tint color programmatically
+
+#### Roadmap
+
+* Throw custom exception when runs on Android < 4.4
+* UWP support
 
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
