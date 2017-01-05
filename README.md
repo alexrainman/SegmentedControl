@@ -9,7 +9,7 @@
 |Platform|Supported|Version|Renderer|
 | ------------------- | :-----------: | :-----------: | :------------------: |
 |Xamarin.iOS Unified|Yes|iOS 8.1+|UISegmentedControl|
-|Xamarin.Android|Yes|API 15+|RadioGroup|
+|Xamarin.Android|Yes|API 18+|RadioGroup|
 
 #### Usage
 
