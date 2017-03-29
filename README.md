@@ -84,7 +84,6 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 #### Roadmap
 
-* Throw custom exception when runs on Android < 4.4
 * UWP support
 
 #### Contributors
