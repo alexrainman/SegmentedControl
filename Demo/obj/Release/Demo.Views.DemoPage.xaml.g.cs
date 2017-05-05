@@ -9,28 +9,26 @@
 // ------------------------------------------------------------------------------
 
 namespace Demo {
-    using System;
-    using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
     
     
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/alexrainman/Git/SegmentedControl/Demo/Views/DemoPage.xaml")]
     public partial class DemoPage : global::Xamarin.Forms.ContentPage {
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.StackLayout segContainer;
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::SegmentedControl.FormsPlugin.Abstractions.SegmentedControl SegControl;
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.StackLayout SegContent;
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(DemoPage));
-            segContainer = this.FindByName <global::Xamarin.Forms.StackLayout>("segContainer");
-            SegControl = this.FindByName <global::SegmentedControl.FormsPlugin.Abstractions.SegmentedControl>("SegControl");
-            SegContent = this.FindByName <global::Xamarin.Forms.StackLayout>("SegContent");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(DemoPage));
+            segContainer = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.StackLayout>(this, "segContainer");
+            SegControl = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::SegmentedControl.FormsPlugin.Abstractions.SegmentedControl>(this, "SegControl");
+            SegContent = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.StackLayout>(this, "SegContent");
         }
     }
 }

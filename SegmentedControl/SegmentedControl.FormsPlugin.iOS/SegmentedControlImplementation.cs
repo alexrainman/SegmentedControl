@@ -25,6 +25,17 @@ namespace SegmentedControl.FormsPlugin.iOS
 
 				nativeControl = new UISegmentedControl();
 
+				for (var i = 0; i<e.NewElement.Children.Count; i++)
+				{
+					nativeControl.InsertSegment(e.NewElement.Children[i].Text, i, false);
+				}
+
+				nativeControl.Enabled = Element.IsEnabled;
+                nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+				SetSelectedTextColor();
+
+				nativeControl.SelectedSegment = Element.SelectedSegment;
+
 				SetNativeControl(nativeControl);
 			}
 
@@ -33,52 +44,65 @@ namespace SegmentedControl.FormsPlugin.iOS
 				// Unsubscribe from event handlers and cleanup any resources
 
 				if (nativeControl != null)
-				    nativeControl.ValueChanged -= nativeControl_CheckedChange;
+				    nativeControl.ValueChanged -= NativeControl_ValueChanged;
 			}
 
 			if (e.NewElement != null)
 			{
 				// Configure the control and subscribe to event handlers
 
-				for (var i = 0; i < e.NewElement.Children.Count; i++)
-				{
-					nativeControl.InsertSegment(e.NewElement.Children[i].Text, i, false);
-				}
-
-				nativeControl.TintColor = Element.TintColor.ToUIColor();
-
-				nativeControl.SelectedSegment = Element.SelectedSegment;
-				e.NewElement.SelectedText = e.NewElement.Children[0].Text;
-
-				nativeControl.ValueChanged += nativeControl_CheckedChange;
-
-				Element.SelectTabAction = new Action<int>(Element_SelectTab);
-				Element.SetTintColorAction = new Action<Color>(Element_SetTintColor);
+				nativeControl.ValueChanged += NativeControl_ValueChanged;;
 			}
 		}
 
-        void Element_SelectTab (int index)
+		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
-			nativeControl.SelectedSegment = index;
-			nativeControl_CheckedChange(nativeControl, null);
+			base.OnElementPropertyChanged(sender, e);
+
+			switch (e.PropertyName)
+			{
+				case "Renderer":
+					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
+					break;
+				case "SelectedSegment":
+					nativeControl.SelectedSegment = Element.SelectedSegment;
+					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
+					break;
+				case "TintColor":
+					nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+					break;
+				case "IsEnabled":
+					nativeControl.Enabled = Element.IsEnabled;
+                    nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+					break;
+				case "SelectedTextColor":
+					SetSelectedTextColor();
+					break;
+				
+			}
+
 		}
 
-		void Element_SetTintColor(Color color)
+		void SetSelectedTextColor()
 		{
-			Element.TintColor = color;
-			nativeControl.TintColor = color.ToUIColor();
+			var attr = new UITextAttributes();
+			attr.TextColor = Element.SelectedTextColor.ToUIColor();
+			nativeControl.SetTitleTextAttributes(attr, UIControlState.Selected);
 		}
 
-		void nativeControl_CheckedChange(object sender, EventArgs e)
+        void NativeControl_ValueChanged (object sender, EventArgs e)
 		{
 			Element.SelectedSegment = (int)nativeControl.SelectedSegment;
-			Element.SelectedText = nativeControl.TitleAt(nativeControl.SelectedSegment); // this will call ValueChanged in PCL
 		}
 
 		protected override void Dispose(bool disposing)
 		{
-			nativeControl.Dispose();
-			nativeControl = null;
+			if (nativeControl != null)
+			{
+				nativeControl.ValueChanged -= NativeControl_ValueChanged;
+				nativeControl.Dispose();
+				nativeControl = null;
+			}
 
 			try
 			{

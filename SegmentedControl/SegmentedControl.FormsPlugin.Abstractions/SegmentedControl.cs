@@ -16,9 +16,21 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			Children = new List<SegmentedControlOption>();
 		}
 
-		// PCL event handler
-		public event ValueChangedEventHandler ValueChanged;
-		public delegate void ValueChangedEventHandler(object sender, EventArgs e);
+		public static readonly BindableProperty TintColorProperty = BindableProperty.Create("TintColor", typeof(Color), typeof(SegmentedControl), Color.Blue);
+
+		public Color TintColor
+		{
+			get { return (Color)GetValue(TintColorProperty); }
+			set { SetValue(TintColorProperty, value); }
+		}
+
+		public static readonly BindableProperty SelectedTextColorProperty = BindableProperty.Create("SelectedTextColor", typeof(Color), typeof(SegmentedControl), Color.White);
+
+		public Color SelectedTextColor
+		{
+			get { return (Color)GetValue(SelectedTextColorProperty); }
+			set { SetValue(SelectedTextColorProperty, value); }
+		}
 
 		public static readonly BindableProperty SelectedSegmentProperty = BindableProperty.Create("SelectedSegment", typeof(int), typeof(SegmentedControl), 0);
 
@@ -32,50 +44,7 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			}
 		}
 
-		private string _selectedText;
-		public string SelectedText
-		{
-			get
-			{
-				return _selectedText;
-			}
-			set
-			{
-				_selectedText = value;
-				if (ValueChanged != null)
-					ValueChanged(this, EventArgs.Empty);
-			}
-		}
-
-		public static readonly BindableProperty TintColorProperty = BindableProperty.Create("TintColor", typeof(Color), typeof(SegmentedControl), Color.FromHex("#007AFF"));
-
-		public Color TintColor
-		{
-			get { return (Color)GetValue(TintColorProperty); }
-			set { SetValue(TintColorProperty, value); }
-		}
-
-		public static readonly BindableProperty SelectedTextColorProperty = BindableProperty.Create("SelectedTextColor", typeof(Color), typeof(SegmentedControl), Color.FromHex("#FFFFFF"));
-
-		public Color SelectedTextColor
-		{
-			get { return (Color)GetValue(SelectedTextColorProperty); }
-			set { SetValue(SelectedTextColorProperty, value); }
-		}
-
-		public Action<int> SelectTabAction;
-		public void SelectTab(int position)
-		{
-			if (SelectTabAction != null)
-				SelectTabAction(position);
-		}
-
-		public Action<Color> SetTintColorAction;
-		public void SetTintColor(Color color)
-		{
-			if (SetTintColorAction != null)
-				SetTintColorAction(color);
-		}
+        public EventHandler<int> ValueChanged;
     }
 
 	public class SegmentedControlOption : View

@@ -4,13 +4,11 @@ using Xamarin.Forms;
 
 namespace Demo
 {
-	public partial class DemoPage : ContentPage
+	public partial class IssueView : ContentView
 	{
-		public DemoPage()
+		public IssueView()
 		{
 			InitializeComponent();
-
-			Title = "Segmented Control";
 
 			SegControl.ValueChanged += SegControl_ValueChanged;
 		}
@@ -35,19 +33,13 @@ namespace Demo
 					break;
 			}
 		}
+	}
 
-		protected override void OnAppearing()
+	public class IssueViewCell : ViewCell
+	{
+		public IssueViewCell()
 		{
-			base.OnAppearing();
-
-            //SegControl.SelectedSegment = 1;
-
-			//SegControl.TintColor = Color.Purple;
-
-			//SegControl.IsEnabled = false;
-
-            //SegControl.SelectedTextColor = Color.Red;
+			View = new IssueView();
 		}
 	}
 }
-

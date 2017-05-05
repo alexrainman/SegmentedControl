@@ -27,7 +27,7 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
 ```
 
 ```xml
-<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="Handle_ValueChanged">
+<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0">
   <controls:SegmentedControl.Children>
     <controls:SegmentedControlOption Text="Tab 1" />
     <controls:SegmentedControlOption Text="Tab 2" />
@@ -35,18 +35,18 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
     <controls:SegmentedControlOption Text="Tab 4" />
   </controls:SegmentedControl.Children>
 </controls:SegmentedControl>
-<StackLayout x:Name="SegContent" Grid.Row="1" Grid.Column="0">
+<StackLayout x:Name="SegContent">
 </StackLayout>
 ```
 
 #### Event handler
 
 ```
-public void Handle_ValueChanged(object o, EventArgs e)
+public void Handle_ValueChanged(object o, int e)
 {
 	SegContent.Children.Clear();
 
-	switch (SegControl.SelectedSegment)
+	switch (e)
 	{
 		case 0:
 			SegContent.Children.Add(new Label() { Text="Tab 1 selected" });
@@ -68,7 +68,7 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```TintColor```: Fill color for the control (Color, default #007AFF)
 
-```SelectedTextColor```: selected segment text color (Color, default #FFFFFF, Android only)
+```SelectedTextColor```: Selected segment text color (Color, default #FFFFFF)
 
 ```SelectedSegment```: Selected segment index (int, default 0).
 
@@ -76,15 +76,50 @@ public void Handle_ValueChanged(object o, EventArgs e)
 
 ```ValueChanged```: Called when a segment is selected.
 
-**Methods**
-
-```SelectTab(int index)```: change selected tab programmatically
-
-```SetTintColor(Color color)```: change tint color programmatically
-
 #### Roadmap
 
+* Change font family/size
 * UWP support
+
+#### Release Notes
+
+1.3.0
+
+[Update] SelectedText property deprecated.
+
+[Update] SelectTab method deprecated (changed SelectedSegment property instead).
+
+[Update] ChangeTintColor method deprecated (change TintColor property instead).
+
+[iOS] SelectedTextColor property implemented.
+
+[Android] Strange colors with disabled android control #16 (fixed).
+
+[Android] Blue color on first and third control #19 (fixed).
+
+[Android] SegmentedControlOption are getting duplicated on android rotation #23 (fixed).
+
+[Android] TintColor not getting set #26 (fixed).
+
+[Android] Segment Text Misaligns when page is left, returned to #30 (fixed).
+
+1.2.4
+
+[Android] #14 IsEnabled has no effect on Android (fixed)
+
+1.2.3
+
+[Android] #14 IsEnabled has no effect on Android (fixed)
+
+1.2.2
+
+[Android] Adding SelectedTextColor property to match iOS control behavior
+
+[Android] Fixing bug #11 Invalid cast exception. Android platform
+
+1.2.1
+
+[Android] Matching tint color behavior with iOS control
 
 #### Contributors
 * [alexrainman](https://github.com/alexrainman)
