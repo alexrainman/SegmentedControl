@@ -83,6 +83,10 @@ public void Handle_ValueChanged(object o, int e)
 
 #### Release Notes
 
+1.3.1
+
+[Android] Regression: control is not displayed anymore on Android #36 fixed.
+
 1.3.0
 
 [Update] SelectedText property deprecated.
