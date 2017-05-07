@@ -13,11 +13,11 @@ namespace Demo
 			SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
-		void SegControl_ValueChanged(object sender, int e)
+		void SegControl_ValueChanged(object sender, EventArgs e)
 		{
 			SegContent.Children.Clear();
 
-			switch (e)
+			switch (SegControl.SelectedSegment)
 			{
 				case 0:
 					SegContent.Children.Add(new Label() { Text = "Items tab selected" });

@@ -33,52 +33,26 @@ namespace SegmentedControl.FormsPlugin.Android
 
 				if (nativeControl != null)
 					nativeControl.CheckedChange -= NativeControl_ValueChanged;
+
+				if (Element != null)
+					Element.SizeChanged -= Element_SizeChanged;
 			}
 
 			if (e.NewElement != null)
 			{
 				// Configure the control and subscribe to event handlers
+
+				Element.SizeChanged += Element_SizeChanged;
 			}
 		}
 
-		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void Element_SizeChanged (object sender, EventArgs e)
 		{
-			base.OnElementPropertyChanged(sender, e);
-
-			switch (e.PropertyName)
-			{
-				case "Renderer":
-					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
-					break;
-				case "Width":
-					if (nativeControl == null)
-					    SetNativeView();
-					break;
-				case "SelectedSegment":
-					var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
-                    option.Checked = true;
-					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
-					break;
-				case "TintColor":
-                    OnPropertyChanged();
-					break;
-				case "IsEnabled":
-					OnPropertyChanged();
-					break;
-				case "SelectedTextColor":
-                    var v = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
-					v.SetTextColor(Element.SelectedTextColor.ToAndroid());
-					break;
-			}
-		}
-
-		void SetNativeView()
-		{
-			var layoutInflater = LayoutInflater.From(Forms.Context);
+	        var layoutInflater = LayoutInflater.From(Forms.Context);
 
 			nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
-			for (var i = 0; i< Element.Children.Count; i++)
+			for (var i = 0; i < Element.Children.Count; i++)
 			{
 				var o = Element.Children[i];
 				var v = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
@@ -102,6 +76,33 @@ namespace SegmentedControl.FormsPlugin.Android
 			nativeControl.CheckedChange += NativeControl_ValueChanged;
 
 			SetNativeControl(nativeControl);
+		}
+
+		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			base.OnElementPropertyChanged(sender, e);
+
+			switch (e.PropertyName)
+			{
+				case "Renderer":
+					Element.ValueChanged?.Invoke(Element, null);
+					break;
+				case "SelectedSegment":
+					var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
+                    option.Checked = true;
+					Element.ValueChanged?.Invoke(Element, null);
+					break;
+				case "TintColor":
+                    OnPropertyChanged();
+					break;
+				case "IsEnabled":
+					OnPropertyChanged();
+					break;
+				case "SelectedTextColor":
+                    var v = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
+					v.SetTextColor(Element.SelectedTextColor.ToAndroid());
+					break;
+			}
 		}
 
 		void OnPropertyChanged()
@@ -176,6 +177,9 @@ namespace SegmentedControl.FormsPlugin.Android
 				nativeControl = null;
 				_v = null;
 			}
+
+			if (Element != null)
+				Element.SizeChanged -= Element_SizeChanged;
 
 			try
 			{

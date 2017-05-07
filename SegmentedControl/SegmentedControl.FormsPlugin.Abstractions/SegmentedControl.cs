@@ -44,7 +44,9 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			}
 		}
 
-        public EventHandler<int> ValueChanged;
+        public EventHandler ValueChanged;
+		//public event ValueChangedEventHandler ValueChanged;
+		//public delegate void ValueChangedEventHandler(object sender, EventArgs e);
     }
 
 	public class SegmentedControlOption : View

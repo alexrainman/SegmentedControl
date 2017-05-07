@@ -25,13 +25,13 @@ namespace SegmentedControl.FormsPlugin.iOS
 
 				nativeControl = new UISegmentedControl();
 
-				for (var i = 0; i<e.NewElement.Children.Count; i++)
+				for (var i = 0; i<Element.Children.Count; i++)
 				{
-					nativeControl.InsertSegment(e.NewElement.Children[i].Text, i, false);
+					nativeControl.InsertSegment(Element.Children[i].Text, i, false);
 				}
 
 				nativeControl.Enabled = Element.IsEnabled;
-                nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+	            nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
 				SetSelectedTextColor();
 
 				nativeControl.SelectedSegment = Element.SelectedSegment;
@@ -51,7 +51,7 @@ namespace SegmentedControl.FormsPlugin.iOS
 			{
 				// Configure the control and subscribe to event handlers
 
-				nativeControl.ValueChanged += NativeControl_ValueChanged;;
+				nativeControl.ValueChanged += NativeControl_ValueChanged;
 			}
 		}
 
@@ -62,11 +62,11 @@ namespace SegmentedControl.FormsPlugin.iOS
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
+					Element.ValueChanged?.Invoke(Element, null);
 					break;
 				case "SelectedSegment":
 					nativeControl.SelectedSegment = Element.SelectedSegment;
-					Element.ValueChanged?.Invoke(Element, Element.SelectedSegment);
+					Element.ValueChanged?.Invoke(Element, null);
 					break;
 				case "TintColor":
 					nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();

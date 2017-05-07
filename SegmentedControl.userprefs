@@ -1,12 +1,6 @@
 ﻿<Properties StartupConfiguration="{80C7503B-92FB-4847-978C-A37AD2139767}|Default">
   <MonoDevelop.Ide.ItemProperties.SegmentedControl.FormsPlugin.Android AndroidDesignerPreferredDevice="Nexus 4" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="README.md">
-    <Files>
-      <File FileName="README.md" Line="38" Column="33" />
-      <File FileName="Demo/Views/DemoPage.xaml" Line="10" Column="9" />
-      <File FileName="Demo/Views/DemoPage.xaml.cs" Line="37" Column="4" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
