@@ -131,4 +131,4 @@ public void Handle_ValueChanged(object o, int e)
 Thanks!
 
 #### License
-Licensed under repo license
+Licensed under MIT
