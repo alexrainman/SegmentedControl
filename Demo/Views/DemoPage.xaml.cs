@@ -12,29 +12,29 @@ namespace Demo
 
 			Title = "Segmented Control";
 
-			SegControl.ValueChanged += SegControl_ValueChanged;
+			//SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
-		void SegControl_ValueChanged(object sender, EventArgs e)
-		{
-			SegContent.Children.Clear();
+        private void SegControl_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
+        {
+            SegContent.Children.Clear();
 
-			switch (SegControl.SelectedSegment)
-			{
-				case 0:
-					SegContent.Children.Add(new Label() { Text = "Items tab selected" });
-					break;
-				case 1:
-					SegContent.Children.Add(new Label() { Text = "Notes tab selected" });
-					break;
-				case 2:
-					SegContent.Children.Add(new Label() { Text = "Approvers tab selected" });
-					break;
-				case 3:
-					SegContent.Children.Add(new Label() { Text = "Attachments tab selected" });
-					break;
-			}
-		}
+            switch (e.SelectedIndex)
+            {
+                case 0:
+                    SegContent.Children.Add(new Label() { Text = "Items tab selected" });
+                    break;
+                case 1:
+                    SegContent.Children.Add(new Label() { Text = "Notes tab selected" });
+                    break;
+                case 2:
+                    SegContent.Children.Add(new Label() { Text = "Approvers tab selected" });
+                    break;
+                case 3:
+                    SegContent.Children.Add(new Label() { Text = "Attachments tab selected" });
+                    break;
+            }
+        }
 
 		protected override void OnAppearing()
 		{
@@ -48,6 +48,6 @@ namespace Demo
 
             //SegControl.SelectedTextColor = Color.Red;
 		}
-	}
+    }
 }
 

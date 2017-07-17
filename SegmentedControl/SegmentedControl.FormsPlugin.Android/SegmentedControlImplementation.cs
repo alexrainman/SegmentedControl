@@ -9,10 +9,10 @@ using Android.Graphics.Drawables;
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
 {
-	/// <summary>
-	/// SegmentedControl Renderer
-	/// </summary>
-	public class SegmentedControlRenderer : ViewRenderer<Abstractions.SegmentedControl, RadioGroup>
+    /// <summary>
+    /// SegmentedControl Renderer
+    /// </summary>
+    public class SegmentedControlRenderer : ViewRenderer<Abstractions.SegmentedControl, RadioGroup>
 	{
 		RadioGroup nativeControl;
 		RadioButton _v;
@@ -49,7 +49,7 @@ namespace SegmentedControl.FormsPlugin.Android
         void Element_SizeChanged (object sender, EventArgs e)
 		{
 	        var layoutInflater = LayoutInflater.From(Forms.Context);
-
+            
 			nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
 			for (var i = 0; i < Element.Children.Count; i++)
@@ -81,16 +81,16 @@ namespace SegmentedControl.FormsPlugin.Android
 		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
-
+            
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-					Element.ValueChanged?.Invoke(Element, null);
+                    Element.SendValueChanged();
 					break;
 				case "SelectedSegment":
 					var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
                     option.Checked = true;
-					Element.ValueChanged?.Invoke(Element, null);
+                    Element.SendValueChanged();
 					break;
 				case "TintColor":
                     OnPropertyChanged();

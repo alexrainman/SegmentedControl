@@ -15,7 +15,7 @@
 
 In your iOS and Android projects call:
 
-```
+``` c#
 Xamarin.Forms.Init();
 SegmentedControlRenderer.Init();
 ```
@@ -41,12 +41,12 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
 
 #### Event handler
 
-```
-public void Handle_ValueChanged(object o, int e)
+``` c#
+public void Handle_ValueChanged(object sender, ValueChangedEventArgs e)
 {
 	SegContent.Children.Clear();
 
-	switch (e)
+	switch (e.SelectedIndex)
 	{
 		case 0:
 			SegContent.Children.Add(new Label() { Text="Tab 1 selected" });

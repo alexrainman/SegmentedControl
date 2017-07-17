@@ -10,14 +10,14 @@ namespace Demo
 		{
 			InitializeComponent();
 
-			SegControl.ValueChanged += SegControl_ValueChanged;
+            SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
-		void SegControl_ValueChanged(object sender, EventArgs e)
+        void SegControl_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
 		{
 			SegContent.Children.Clear();
 
-			switch (SegControl.SelectedSegment)
+			switch (e.SelectedIndex)
 			{
 				case 0:
 					SegContent.Children.Add(new Label() { Text = "Items tab selected" });
