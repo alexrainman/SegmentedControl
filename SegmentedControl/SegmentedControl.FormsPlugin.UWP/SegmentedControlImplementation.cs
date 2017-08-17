@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using SegmentedControl.FormsPlugin.UWP;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControlControl), typeof(SegmentedControlRenderer))]
+[assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.UWP
 {
     /// <summary>
