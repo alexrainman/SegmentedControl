@@ -4,13 +4,18 @@ using Xamarin.Forms;
 
 namespace Demo
 {
-	public partial class DemoPage : ContentPage
+    /// <summary>
+    /// This page is used to demo issue #51 where the Segmented Control
+    /// doesn't display on a page that is navigated to.
+    /// https://github.com/alexrainman/SegmentedControl/issues/51
+    /// </summary>
+	public partial class DemoSecondPage : ContentPage
 	{
-		public DemoPage()
+		public DemoSecondPage()
 		{
 			InitializeComponent();
 
-			Title = "Segmented Control";
+			Title = "Segmented Control on Second Page";
 
 			SegControl.ValueChanged += SegControl_ValueChanged;
 		}
@@ -48,14 +53,6 @@ namespace Demo
 
             //SegControl.SelectedTextColor = Color.Red;
 		}
-
-        private async void GoToSecondPage_Clicked(object sender, EventArgs e)
-        {
-            // Navigate to second page to demo issue where
-            // segmented control won't display.
-            // https://github.com/alexrainman/SegmentedControl/issues/51
-            await Navigation.PushAsync(new DemoSecondPage());
-        }
-    }
+	}
 }
 

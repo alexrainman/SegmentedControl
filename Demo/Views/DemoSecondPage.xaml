@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="Demo.DemoPage"
+<ContentPage x:Class="Demo.DemoSecondPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions">
@@ -15,9 +15,7 @@
                 <controls:SegmentedControlOption Text="Attachments" />
             </controls:SegmentedControl.Children>
         </controls:SegmentedControl>
-        <StackLayout x:Name="SegContent" VerticalOptions="FillAndExpand" />
-
-        <Button Text="Go to Second Page" Clicked="GoToSecondPage_Clicked"  />
+        <StackLayout x:Name="SegContent" />
     </StackLayout>
 
 </ContentPage>
