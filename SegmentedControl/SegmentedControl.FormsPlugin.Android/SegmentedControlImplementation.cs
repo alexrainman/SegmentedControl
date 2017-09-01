@@ -48,34 +48,37 @@ namespace SegmentedControl.FormsPlugin.Android
 
         void Element_SizeChanged (object sender, EventArgs e)
 		{
-	        var layoutInflater = LayoutInflater.From(Forms.Context);
+            if (Control == null)
+            {
+                var layoutInflater = LayoutInflater.From(Forms.Context);
 
-			nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
+                nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
-			for (var i = 0; i < Element.Children.Count; i++)
-			{
-				var o = Element.Children[i];
-				var v = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
+                for (var i = 0; i < Element.Children.Count; i++)
+                {
+                    var o = Element.Children[i];
+                    var v = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
 
-				v.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
-				v.Text = o.Text;
+                    v.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
+                    v.Text = o.Text;
 
-				if (i == 0)
-					v.SetBackgroundResource(Resource.Drawable.segmented_control_first_background);
-				else if (i == Element.Children.Count - 1)
-					v.SetBackgroundResource(Resource.Drawable.segmented_control_last_background);
+                    if (i == 0)
+                        v.SetBackgroundResource(Resource.Drawable.segmented_control_first_background);
+                    else if (i == Element.Children.Count - 1)
+                        v.SetBackgroundResource(Resource.Drawable.segmented_control_last_background);
 
-				ConfigureRadioButton(i, v);
+                    ConfigureRadioButton(i, v);
 
-				nativeControl.AddView(v);
-			}
+                    nativeControl.AddView(v);
+                }
 
-			var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
-			option.Checked = true;
+                var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
+                option.Checked = true;
 
-			nativeControl.CheckedChange += NativeControl_ValueChanged;
+                nativeControl.CheckedChange += NativeControl_ValueChanged;
 
-			SetNativeControl(nativeControl);
+                SetNativeControl(nativeControl);
+            }
 		}
 
 		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -85,6 +88,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			switch (e.PropertyName)
 			{
 				case "Renderer":
+                    Element_SizeChanged(null, null);
 					Element.ValueChanged?.Invoke(Element, null);
 					break;
 				case "SelectedSegment":

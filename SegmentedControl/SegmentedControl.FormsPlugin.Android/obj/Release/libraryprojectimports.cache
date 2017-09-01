@@ -2,15 +2,30 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.Design/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.Transition/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v4/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.AppCompat/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.CardView/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.MediaRouter/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.RecyclerView/library_project_imports/res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj/Release/__library_projects__/Xamarin.Android.Support.v4/library_project_imports/assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj/Release/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj/Release/__library_projects__/Xamarin.Forms.Platform/library_project_imports/assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v4.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.CardView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.MediaRouter.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Android/obj/Release/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>

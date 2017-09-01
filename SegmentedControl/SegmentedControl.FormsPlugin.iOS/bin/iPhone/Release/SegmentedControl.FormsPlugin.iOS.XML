@@ -5,14 +5,14 @@
     </assembly>
     <members>
         <member name="T:SegmentedControl.FormsPlugin.iOS.SegmentedControlRenderer">
-             <summary>
-             SegmentedControl Renderer
-             </summary>
-            </member>
+            <summary>
+            SegmentedControl Renderer
+            </summary>
+        </member>
         <member name="M:SegmentedControl.FormsPlugin.iOS.SegmentedControlRenderer.Init">
-             <summary>
-             Used for registration with dependency service
-             </summary>
-            </member>
+            <summary>
+            Used for registration with dependency service
+            </summary>
+        </member>
     </members>
 </doc>

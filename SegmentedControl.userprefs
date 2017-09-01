@@ -7,6 +7,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B5203C9-F07A-4942-977B-5001DED6881A" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.Nexus_5X_API_26_x86" />
   <MultiItemStartupConfigurations />
 </Properties>

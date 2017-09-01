@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SegmentedControl.FormsPlugin</id>
-        <version>1.3.1</version>
+        <version>1.3.2</version>
         <title>Segmented Control for Xamarin Forms</title>
         <authors>Alex Rainman</authors>
         <owners>Alex Rainman</owners>
@@ -12,27 +12,36 @@
         <description>Segmented Control for Xamarin Forms</description>
         <summary>Segmented Control for Xamarin Forms</summary>
         <releaseNotes>
-        1.3.1
-        [Android] Regression: control is not displayed anymore on Android #36 fixed.
-        1.3.0
-        [Update] SelectedText property deprecated.
-        [Update] SelectTab method deprecated (changed SelectedSegment property instead).
-        [Update] ChangeTintColor method deprecated (change TintColor property instead).
-        [iOS] SelectedTextColor property implemented.
-        [Android] Strange colors with disabled android control #16 (fixed).
-        [Android] Blue color on first and third control #19 (fixed).
-        [Android] SegmentedControlOption are getting duplicated on android rotation #23 (fixed).
-        [Android] TintColor not getting set #26 (fixed).
-        [Android] Segment Text Misaligns when page is left, returned to #30 (fixed).
-        1.2.4
-        [Android] #14 IsEnabled has no effect on Android (fixed)
-        1.2.3
-        [Android] #14 IsEnabled has no effect on Android (fixed)
-        1.2.2
-        [Android] Adding SelectedTextColor property to match iOS control behavior
-        [Android] Fixing bug #11 Invalid cast exception. Android platform
-        1.2.1
-        [Android] Matching tint color behavior with iOS control
+1.3.2
+[Android] Segmented Control Not Displaying on Second Page #51
+[Android] About 150 warnings about resources #50
+[Android] Android package incompatible with latest Xamarin Forms #48
+[Android] Segmented Control Not rendering in Android #46
+[Android] Late instantiation of the RadioGroup control in the Android renderer fails to display bug #45
+[Android] Object Disposed Exception. Crash. Android only #44
+[Android] Segmented control changed displaying inside Grid #42
+[Update] Doesn't work with Xamarin.Forms Previewer #49
+1.3.1
+[Android] Regression: control is not displayed anymore on Android #36 fixed.
+1.3.0
+[Update] SelectedText property deprecated.
+[Update] SelectTab method deprecated (changed SelectedSegment property instead).
+[Update] ChangeTintColor method deprecated (change TintColor property instead).
+[iOS] SelectedTextColor property implemented.
+[Android] Strange colors with disabled android control #16 (fixed).
+[Android] Blue color on first and third control #19 (fixed).
+[Android] SegmentedControlOption are getting duplicated on android rotation #23 (fixed).
+[Android] TintColor not getting set #26 (fixed).
+[Android] Segment Text Misaligns when page is left, returned to #30 (fixed).
+1.2.4
+[Android] #14 IsEnabled has no effect on Android (fixed)
+1.2.3
+[Android] #14 IsEnabled has no effect on Android (fixed)
+1.2.2
+[Android] Adding SelectedTextColor property to match iOS control behavior
+[Android] Fixing bug #11 Invalid cast exception. Android platform
+1.2.1
+[Android] Matching tint color behavior with iOS control
         </releaseNotes>
         <tags>segmented control ios android uwp xamarin forms monotouch monodroid</tags>
         <dependencies>
