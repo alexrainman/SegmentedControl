@@ -62,21 +62,33 @@ namespace SegmentedControl.FormsPlugin.iOS
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-					Element.ValueChanged?.Invoke(Element, null);
+					Element?.ValueChanged?.Invoke(Element, null);
 					break;
 				case "SelectedSegment":
-					nativeControl.SelectedSegment = Element.SelectedSegment;
-					Element.ValueChanged?.Invoke(Element, null);
+                    if (nativeControl != null && Element != null)
+                    {
+                        nativeControl.SelectedSegment = Element.SelectedSegment;
+                        Element.ValueChanged?.Invoke(Element, null);
+                    }
 					break;
 				case "TintColor":
-					nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+                    if (nativeControl != null && Element != null)
+                    {
+                        nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+                    }
 					break;
 				case "IsEnabled":
-					nativeControl.Enabled = Element.IsEnabled;
-                    nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+                    if (nativeControl != null && Element != null)
+                    {
+                        nativeControl.Enabled = Element.IsEnabled;
+                        nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+                    }
 					break;
 				case "SelectedTextColor":
-					SetSelectedTextColor();
+                    if (nativeControl != null && Element != null)
+                    {
+                        SetSelectedTextColor();
+                    }
 					break;
 				
 			}

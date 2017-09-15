@@ -8,7 +8,7 @@ namespace Demo
     {
         public MainViewModel()
         {
-            SelectedSegment = 3;
+            SelectedSegment = -1;
         }
 
         public int SelectedSegment { get; set; }
