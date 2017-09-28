@@ -32,7 +32,7 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(SelectedTextColorProperty, value); }
 		}
 
-		public static readonly BindableProperty SelectedSegmentProperty = BindableProperty.Create("SelectedSegment", typeof(int), typeof(SegmentedControl), 0);
+		public static readonly BindableProperty SelectedSegmentProperty = BindableProperty.Create("SelectedSegment", typeof(int), typeof(SegmentedControl), 0, defaultBindingMode:BindingMode.TwoWay);
 
 		public int SelectedSegment
 		{
