@@ -5013,8 +5013,10 @@ namespace SegmentedControl.FormsPlugin.Android
 			// aapt resource value: 0x7f0b000a
 			public static int Widget_MediaRouter_MediaRouteButton = 2131427338;
 			
-			// aapt resource value: 0x7f0a0011
-			public static int Widget_MediaRouter_ControllerText_Secondary_Light = 2131361809;
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
 			
 			private Style()
 			{

@@ -45,12 +45,12 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			}
 		}
 
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
+        public event EventHandler ValueChanged;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void SendValueChanged()
         {
-            ValueChanged?.Invoke(this, new ValueChangedEventArgs { SelectedIndex = this.SelectedSegment });
+            ValueChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -64,9 +64,4 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(TextProperty, value); }
 		}
 	}
-
-    public class ValueChangedEventArgs : EventArgs
-    {
-        public int SelectedIndex { get; set; }
-    }
 }

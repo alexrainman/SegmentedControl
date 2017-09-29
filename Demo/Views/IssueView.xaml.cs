@@ -9,15 +9,13 @@ namespace Demo
 		public IssueView()
 		{
 			InitializeComponent();
-
-            SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
-        void SegControl_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
+        void SegControl_ValueChanged(object sender, EventArgs e)
 		{
 			SegContent.Children.Clear();
 
-			switch (e.SelectedIndex)
+			switch (SegControl.SelectedSegment)
 			{
 				case 0:
 					SegContent.Children.Add(new Label() { Text = "Items tab selected" });

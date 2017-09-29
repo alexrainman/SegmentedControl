@@ -170,17 +170,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				var id = rg.CheckedRadioButtonId;
 				var radioButton = rg.FindViewById(id);
-<<<<<<< HEAD
-				var radioId = rg.IndexOfChild(radioButton);
 
-				var v = (RadioButton)rg.GetChildAt(radioId);
-
-				var color = Element.IsEnabled ? Element.TintColor.ToAndroid() : Color.Gray.ToAndroid();
-				_v.SetTextColor(color);
-				v.SetTextColor(Element.SelectedTextColor.ToAndroid());
-				_v = v;
-
-=======
 				var radioId = rg.IndexOfChild(radioButton);
 
 				var v = (RadioButton)rg.GetChildAt(radioId);
@@ -190,7 +180,6 @@ namespace SegmentedControl.FormsPlugin.Android
 				v.SetTextColor(Element.SelectedTextColor.ToAndroid());
 				_v = v;
 
->>>>>>> 991b010f22a0c3458d378936f461663b2193a751
 				Element.SelectedSegment = radioId;
 			}
 		}

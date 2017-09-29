@@ -7171,8 +7171,10 @@ namespace Demo.Droid
 			// aapt resource value: 0x7f0b000a
 			public const int Widget_MediaRouter_MediaRouteButton = 2131427338;
 			
-			// aapt resource value: 0x7f0a0011
-			public const int Widget_MediaRouter_ControllerText_Secondary_Light = 2131361809;
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
 			
 			private Style()
 			{
@@ -8637,9 +8639,6 @@ namespace Demo.Droid
 					2130772184,
 					2130772185,
 					2130772186,
-<<<<<<< HEAD
-					2130772187};
-=======
 					2130772187,
 					2130772188,
 					2130772189,
@@ -8647,7 +8646,6 @@ namespace Demo.Droid
 					2130772191,
 					2130772192,
 					2130772193};
->>>>>>> 991b010f22a0c3458d378936f461663b2193a751
 			
 			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;

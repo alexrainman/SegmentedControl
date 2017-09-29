@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions">
 
     <StackLayout Padding="12" Spacing="12">
-        <controls:SegmentedControl x:Name="SegControl">
+        <controls:SegmentedControl x:Name="SegControl" ValueChanged="SegControl_ValueChanged">
             <controls:SegmentedControl.Children>
                 <controls:SegmentedControlOption Text="Items" />
                 <controls:SegmentedControlOption Text="Notes" />

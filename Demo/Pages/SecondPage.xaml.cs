@@ -14,8 +14,6 @@ namespace Demo
 			Title = "Segmented Control 2";
 
 			BindingContext = new MainViewModel();
-
-			SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
 		void SegControl_ValueChanged(object sender, EventArgs e)
