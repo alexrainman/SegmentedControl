@@ -9,10 +9,10 @@ using Android.Graphics.Drawables;
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
 {
-	/// <summary>
-	/// SegmentedControl Renderer
-	/// </summary>
-	public class SegmentedControlRenderer : ViewRenderer<Abstractions.SegmentedControl, RadioGroup>
+    /// <summary>
+    /// SegmentedControl Renderer
+    /// </summary>
+    public class SegmentedControlRenderer : ViewRenderer<Abstractions.SegmentedControl, RadioGroup>
 	{
 		RadioGroup nativeControl;
 		RadioButton _v;
@@ -91,14 +91,14 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				case "Renderer":
                     Element_SizeChanged(null, null);
-					Element?.ValueChanged?.Invoke(Element, null);
+					Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
                     if (nativeControl != null && Element != null)
                     {
                         var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
                         option.Checked = true;
-                        Element.ValueChanged?.Invoke(Element, null);
+                        Element.SendValueChanged();
                     }
 					break;
 				case "TintColor":
@@ -170,6 +170,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				var id = rg.CheckedRadioButtonId;
 				var radioButton = rg.FindViewById(id);
+
 				var radioId = rg.IndexOfChild(radioButton);
 
 				var v = (RadioButton)rg.GetChildAt(radioId);

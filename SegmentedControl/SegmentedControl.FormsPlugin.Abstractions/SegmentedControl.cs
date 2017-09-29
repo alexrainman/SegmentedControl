@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace SegmentedControl.FormsPlugin.Abstractions
@@ -44,9 +45,13 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			}
 		}
 
-        public EventHandler ValueChanged;
-		//public event ValueChangedEventHandler ValueChanged;
-		//public delegate void ValueChangedEventHandler(object sender, EventArgs e);
+        public event EventHandler ValueChanged;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void SendValueChanged()
+        {
+            ValueChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
 	public class SegmentedControlOption : View

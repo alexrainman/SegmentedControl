@@ -9,11 +9,9 @@ namespace Demo
 		public IssueView()
 		{
 			InitializeComponent();
-
-			SegControl.ValueChanged += SegControl_ValueChanged;
 		}
 
-		void SegControl_ValueChanged(object sender, EventArgs e)
+        void SegControl_ValueChanged(object sender, EventArgs e)
 		{
 			SegContent.Children.Clear();
 

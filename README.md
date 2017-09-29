@@ -15,7 +15,7 @@
 
 In your iOS and Android projects call:
 
-```
+``` csharp
 Xamarin.Forms.Init();
 SegmentedControlRenderer.Init();
 ```
@@ -23,11 +23,11 @@ SegmentedControlRenderer.Init();
 #### XAML
 
 ```xml
-xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;  assembly=SegmentedControl.FormsPlugin.Abstractions"
 ```
 
 ```xml
-<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0">
+<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="Handle_ValueChanged">
   <controls:SegmentedControl.Children>
     <controls:SegmentedControlOption Text="Tab 1" />
     <controls:SegmentedControlOption Text="Tab 2" />
@@ -41,12 +41,12 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
 
 #### Event handler
 
-```
-public void Handle_ValueChanged(object o, int e)
+``` csharp
+public void Handle_ValueChanged(object sender, EventArgs e)
 {
 	SegContent.Children.Clear();
 
-	switch (e)
+	switch (SegControl.SelectedSegment)
 	{
 		case 0:
 			SegContent.Children.Add(new Label() { Text="Tab 1 selected" });

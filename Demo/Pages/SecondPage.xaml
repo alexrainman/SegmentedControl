@@ -9,7 +9,7 @@
         <StackLayout x:Name="segContainer"
                      Padding="12"
                      Spacing="12">
-            <controls:SegmentedControl x:Name="SegControl" SelectedSegment="{Binding SelectedSegment}">
+            <controls:SegmentedControl x:Name="SegControl" SelectedSegment="{Binding SelectedSegment}" ValueChanged="SegControl_ValueChanged">
                 <controls:SegmentedControl.Children>
                     <controls:SegmentedControlOption Text="Items" />
                     <controls:SegmentedControlOption Text="Notes" />
