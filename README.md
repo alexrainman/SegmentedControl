@@ -83,6 +83,24 @@ public void Handle_ValueChanged(object sender, ValueChangedEventArgs e)
 
 #### Release Notes
 
+1.3.2
+
+[Android] Segmented Control Not Displaying on Second Page #51
+
+[Android] About 150 warnings about resources #50
+
+[Android] Android package incompatible with latest Xamarin Forms #48
+
+[Android] Segmented Control Not rendering in Android #46
+
+[Android] Late instantiation of the RadioGroup control in the Android renderer fails to display bug #45
+
+[Android] Object Disposed Exception. Crash. Android only #44
+
+[Android] Segmented control changed displaying inside Grid #42
+
+[Update] Doesn't work with Xamarin.Forms Previewer #49
+
 1.3.1
 
 [Android] Regression: control is not displayed anymore on Android #36 fixed.
