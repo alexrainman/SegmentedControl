@@ -62,13 +62,13 @@ namespace SegmentedControl.FormsPlugin.iOS
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-					Element?.ValueChanged?.Invoke(Element, null);
+                    Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
                     if (nativeControl != null && Element != null)
                     {
                         nativeControl.SelectedSegment = Element.SelectedSegment;
-                        Element.ValueChanged?.Invoke(Element, null);
+                        Element.SendValueChanged();
                     }
 					break;
 				case "TintColor":

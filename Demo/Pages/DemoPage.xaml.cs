@@ -14,25 +14,34 @@ namespace Demo
 
             BindingContext = new MainViewModel();
 
-			SegControl.ValueChanged += SegControl_ValueChanged;
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Text = "Reset",
+                Order = ToolbarItemOrder.Primary,
+                Command = new Command(() => {
+                    SegControl.SelectedSegment = -1;
+                })
+            });
 		}
 
-		void SegControl_ValueChanged(object sender, EventArgs e)
-		{
-			SegContent.Children.Clear();
-
-			switch (SegControl.SelectedSegment)
+        void Handle_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
+        {
+            switch (e.NewValue)
 			{
 				case 0:
+					SegContent.Children.Clear();
 					SegContent.Children.Add(new Label() { Text = "Items tab selected" });
 					break;
 				case 1:
+					SegContent.Children.Clear();
 					SegContent.Children.Add(new Label() { Text = "Notes tab selected" });
 					break;
 				case 2:
+					SegContent.Children.Clear();
 					SegContent.Children.Add(new Label() { Text = "Approvers tab selected" });
 					break;
 				case 3:
+					SegContent.Children.Clear();
 					SegContent.Children.Add(new Label() { Text = "Attachments tab selected" });
 					break;
 			}

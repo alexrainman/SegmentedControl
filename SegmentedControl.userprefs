@@ -1,11 +1,11 @@
-﻿<Properties StartupConfiguration="{80C7503B-92FB-4847-978C-A37AD2139767}|Default">
+﻿<Properties StartupConfiguration="{71701994-F330-4D8D-9351-42A39C26B737}|Default">
   <MonoDevelop.Ide.ItemProperties.SegmentedControl.FormsPlugin.Android AndroidDesignerPreferredDevice="Nexus 4" />
   <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B5203C9-F07A-4942-977B-5001DED6881A" />
+  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A21EB170-18C1-4AEF-8A05-DF85828E5041" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.Nexus_5X_API_26_x86" />
   <MultiItemStartupConfigurations />

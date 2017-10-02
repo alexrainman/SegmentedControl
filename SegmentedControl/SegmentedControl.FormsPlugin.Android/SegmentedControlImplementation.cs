@@ -91,15 +91,47 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				case "Renderer":
                     Element_SizeChanged(null, null);
-					Element?.ValueChanged?.Invoke(Element, null);
+                    Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
                     if (nativeControl != null && Element != null)
                     {
                         var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
-                        option.Checked = true;
-                        Element.ValueChanged?.Invoke(Element, null);
-                    }
+						
+                        if (option != null)
+							option.Checked = true;
+
+                        if (Element.SelectedSegment < 0)
+                        {
+                            var layoutInflater = LayoutInflater.From(Forms.Context);
+
+							nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
+
+							for (var i = 0; i < Element.Children.Count; i++)
+							{
+								var o = Element.Children[i];
+								var v = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
+
+								v.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
+								v.Text = o.Text;
+
+								if (i == 0)
+									v.SetBackgroundResource(Resource.Drawable.segmented_control_first_background);
+								else if (i == Element.Children.Count - 1)
+									v.SetBackgroundResource(Resource.Drawable.segmented_control_last_background);
+
+								ConfigureRadioButton(i, v);
+
+								nativeControl.AddView(v);
+							}
+
+							nativeControl.CheckedChange += NativeControl_ValueChanged;
+
+							SetNativeControl(nativeControl);
+                        }
+
+						Element.SendValueChanged();
+					}
 					break;
 				case "TintColor":
                     OnPropertyChanged();
