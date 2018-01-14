@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Demo.DemoPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions">
+
+    <ScrollView>
+        <StackLayout x:Name="segContainer"
+                     Padding="12"
+                     Spacing="12">
+            <controls:SegmentedControl x:Name="SegControl" SelectedSegment="{Binding SelectedSegment}" ValueChanged="Handle_ValueChanged">
+                <controls:SegmentedControl.Children>
+                    <controls:SegmentedControlOption Text="Items" />
+                    <controls:SegmentedControlOption Text="Notes" />
+                    <controls:SegmentedControlOption Text="Approvers" />
+                    <controls:SegmentedControlOption Text="Attachments" />
+                </controls:SegmentedControl.Children>
+            </controls:SegmentedControl>
+            <StackLayout x:Name="SegContent" />
+            <Button Text="Navigate" Clicked="Handle_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+    
+    <!--<Grid Padding="12">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+        <controls:SegmentedControl x:Name="SegControl" Grid.Column="0" Grid.Row="0">
+            <controls:SegmentedControl.Children>
+                <controls:SegmentedControlOption Text="Items" />
+                <controls:SegmentedControlOption Text="Notes" />
+                <controls:SegmentedControlOption Text="Approvers" />
+                <controls:SegmentedControlOption Text="Attachments" />
+            </controls:SegmentedControl.Children>
+        </controls:SegmentedControl>
+        <StackLayout x:Name="SegContent"  Grid.Column="0" Grid.Row="1"/>
+        
+    </Grid>-->
+    
+</ContentPage>

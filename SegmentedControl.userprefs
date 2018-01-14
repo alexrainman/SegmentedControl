@@ -1,12 +1,16 @@
 ﻿<Properties StartupConfiguration="{80C7503B-92FB-4847-978C-A37AD2139767}|Default">
   <MonoDevelop.Ide.ItemProperties.SegmentedControl.FormsPlugin.Android AndroidDesignerPreferredDevice="Nexus 4" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SegmentedControl/SegmentedControl.FormsPlugin.UWP/SegmentedControlImplementation.cs">
+    <Files>
+      <File FileName="SegmentedControl/SegmentedControl.FormsPlugin.UWP/SegmentedControlImplementation.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B5203C9-F07A-4942-977B-5001DED6881A" />
+  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.9E7BB1F3-C457-4EB4-B7BE-21B7967E7812" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.Demo.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
   <MultiItemStartupConfigurations />
 </Properties>

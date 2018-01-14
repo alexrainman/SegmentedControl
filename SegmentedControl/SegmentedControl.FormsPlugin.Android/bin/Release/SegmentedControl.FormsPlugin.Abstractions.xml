@@ -5,9 +5,9 @@
     </assembly>
     <members>
         <member name="T:SegmentedControl.FormsPlugin.Abstractions.SegmentedControl">
-             <summary>
-             SegmentedControl Interface
-             </summary>
-            </member>
+            <summary>
+            SegmentedControl Interface
+            </summary>
+        </member>
     </members>
 </doc>

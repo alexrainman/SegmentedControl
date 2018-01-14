@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace SegmentedControl.FormsPlugin.Abstractions
@@ -24,6 +25,14 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(TintColorProperty, value); }
 		}
 
+        public static readonly BindableProperty DisabledColorProperty = BindableProperty.Create("DisabledColor", typeof(Color), typeof(SegmentedControl), Color.Gray);
+
+        public Color DisabledColor
+        {
+            get { return (Color)GetValue(DisabledColorProperty); }
+            set { SetValue(DisabledColorProperty, value); }
+        }
+
 		public static readonly BindableProperty SelectedTextColorProperty = BindableProperty.Create("SelectedTextColor", typeof(Color), typeof(SegmentedControl), Color.White);
 
 		public Color SelectedTextColor
@@ -44,9 +53,13 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			}
 		}
 
-        public EventHandler ValueChanged;
-		//public event ValueChangedEventHandler ValueChanged;
-		//public delegate void ValueChangedEventHandler(object sender, EventArgs e);
+		public event EventHandler<ValueChangedEventArgs> ValueChanged;
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public void SendValueChanged()
+		{
+            ValueChanged?.Invoke(this, new ValueChangedEventArgs { NewValue = this.SelectedSegment });
+		}
     }
 
 	public class SegmentedControlOption : View
@@ -59,4 +72,9 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(TextProperty, value); }
 		}
 	}
+
+	public class ValueChangedEventArgs : EventArgs
+    {
+        public int NewValue { get; set; }
+    }
 }
