@@ -31,7 +31,7 @@ namespace SegmentedControl.FormsPlugin.iOS
 				}
 
 				nativeControl.Enabled = Element.IsEnabled;
-	            nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
+                nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Element.DisabledColor.ToUIColor();
 				SetSelectedTextColor();
 
 				nativeControl.SelectedSegment = Element.SelectedSegment;
@@ -59,36 +59,26 @@ namespace SegmentedControl.FormsPlugin.iOS
 		{
 			base.OnElementPropertyChanged(sender, e);
 
+            if (nativeControl == null || Element == null) return;
+
 			switch (e.PropertyName)
 			{
 				case "Renderer":
                     Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
-                    if (nativeControl != null && Element != null)
-                    {
-                        nativeControl.SelectedSegment = Element.SelectedSegment;
-                        Element.SendValueChanged();
-                    }
+                    nativeControl.SelectedSegment = Element.SelectedSegment;
+                    Element.SendValueChanged();
 					break;
 				case "TintColor":
-                    if (nativeControl != null && Element != null)
-                    {
-                        nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
-                    }
+                    nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Element.DisabledColor.ToUIColor();
 					break;
 				case "IsEnabled":
-                    if (nativeControl != null && Element != null)
-                    {
-                        nativeControl.Enabled = Element.IsEnabled;
-                        nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Color.Gray.ToUIColor();
-                    }
+                    nativeControl.Enabled = Element.IsEnabled;
+                    nativeControl.TintColor = Element.IsEnabled ? Element.TintColor.ToUIColor() : Element.DisabledColor.ToUIColor();
 					break;
 				case "SelectedTextColor":
-                    if (nativeControl != null && Element != null)
-                    {
-                        SetSelectedTextColor();
-                    }
+                    SetSelectedTextColor();
 					break;
 				
 			}

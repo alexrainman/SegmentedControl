@@ -1,8 +1,0 @@
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/obj/Release/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/bin/Release/SegmentedControl.FormsPlugin.Abstractions.dll.mdb
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/bin/Release/SegmentedControl.FormsPlugin.Abstractions.dll
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/obj/Release/SegmentedControl.FormsPlugin.Abstractions.dll
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/obj/Release/SegmentedControl.FormsPlugin.Abstractions.dll.mdb
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/bin/Release/Xamarin.Forms.Core.dll
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/bin/Release/Xamarin.Forms.Platform.dll
-/Users/alexrainman/Git/SegmentedControl/SegmentedControl/SegmentedControl.FormsPlugin.Abstractions/bin/Release/Xamarin.Forms.Xaml.dll

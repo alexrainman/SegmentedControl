@@ -25,6 +25,14 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 			set { SetValue(TintColorProperty, value); }
 		}
 
+        public static readonly BindableProperty DisabledColorProperty = BindableProperty.Create("DisabledColor", typeof(Color), typeof(SegmentedControl), Color.Gray);
+
+        public Color DisabledColor
+        {
+            get { return (Color)GetValue(DisabledColorProperty); }
+            set { SetValue(DisabledColorProperty, value); }
+        }
+
 		public static readonly BindableProperty SelectedTextColorProperty = BindableProperty.Create("SelectedTextColor", typeof(Color), typeof(SegmentedControl), Color.White);
 
 		public Color SelectedTextColor
