@@ -32,6 +32,7 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				// Instantiate the native control and assign it to the Control property with
 				// the SetNativeControl method
+                Element_SizeChanged(null, null);
 			}
 
 			if (e.OldElement != null)
@@ -101,7 +102,6 @@ namespace SegmentedControl.FormsPlugin.Android
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-                    Element_SizeChanged(null, null);
                     Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
