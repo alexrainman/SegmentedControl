@@ -2,6 +2,10 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
+/*
+ * https://github.com/1iveowl/Plugin.SegmentedControl
+ */
+
 namespace SegmentedControl.FormsPlugin.UWP
 {
     public class SegmentRadioButton : RadioButton

@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using SegmentedControl.FormsPlugin.Abstractions;
+
 using Xamarin.Forms;
 
 namespace Demo
 {
-    public partial class MainPage : ContentPage
+    public partial class SecondPage : ContentPage
     {
-        public MainPage()
+        public SecondPage()
         {
             InitializeComponent();
 
-            Title = "Segmented Control";
-
-            ToolbarItems.Add(new ToolbarItem() { Text = "Navigate", Command = new Command((obj) => {
-                Navigation.PushAsync(new SecondPage());
-            })});
+            Title = "Second Page";
         }
 
         void Handle_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)

@@ -7,6 +7,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml;
 using System.Linq;
 
+/*
+ * https://github.com/1iveowl/Plugin.SegmentedControl
+ */ 
+
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.UWP
 {
@@ -25,7 +29,52 @@ namespace SegmentedControl.FormsPlugin.UWP
 
             if (Control == null)
             {
-                CreateSegmentedRadioButtonControl();
+                nativeControl = new SegmentedUserControl();
+
+                var radioButtonGroupName = Guid.NewGuid().ToString();
+
+                var grid = nativeControl.SegmentedControlGrid;
+                grid.BorderBrush = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, "");
+
+                grid.ColumnDefinitions.Clear();
+                grid.Children.Clear();
+
+                for (var i = 0; i < Element.Children.Count; i++)
+                {
+                    var segmentButton = new SegmentRadioButton
+                    {
+                        GroupName = radioButtonGroupName,
+                        Style = (Windows.UI.Xaml.Style)nativeControl.Resources["SegmentedRadioButtonStyle"],
+                        Content = Element.Children[i].Text,
+                        Tag = i,
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        VerticalAlignment = VerticalAlignment.Stretch,
+                        BorderBrush = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, ""),
+                        SelectedTextColor = (SolidColorBrush)_colorConverter.Convert(Element.SelectedTextColor, null, null, ""),
+                        TintColor = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, ""),
+                        DisabledColor = (SolidColorBrush)_colorConverter.Convert(Element.DisabledColor, null, null, ""),
+                        BorderThickness = i > 0 ? new Windows.UI.Xaml.Thickness(1, 0, 0, 0) : new Windows.UI.Xaml.Thickness(0, 0, 0, 0),
+                        IsEnabled = Element.IsEnabled
+                    };
+
+                    segmentButton.Checked += SegmentRadioButtonOnChecked;
+
+                    if (i == Element.SelectedSegment)
+                    {
+                        segmentButton.IsChecked = true;
+                    }
+
+                    grid.ColumnDefinitions.Add(new Windows.UI.Xaml.Controls.ColumnDefinition
+                    {
+                        Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star),
+                    });
+
+                    grid.Children.Add(segmentButton);
+
+                    Windows.UI.Xaml.Controls.Grid.SetColumn(segmentButton, i);
+                }
+
+                SetNativeControl(nativeControl);
             }
 
             if (e.OldElement != null)
@@ -119,56 +168,6 @@ namespace SegmentedControl.FormsPlugin.UWP
             {
                 ((SegmentRadioButton)segment).SelectedTextColor = (SolidColorBrush)_colorConverter.Convert(Element.SelectedTextColor, null, null, "");
             }
-        }
-
-        private void CreateSegmentedRadioButtonControl()
-        {
-            nativeControl = new SegmentedUserControl();
-
-            var radioButtonGroupName = Guid.NewGuid().ToString();
-
-            var grid = nativeControl.SegmentedControlGrid;
-            grid.BorderBrush = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, "");
-
-            grid.ColumnDefinitions.Clear();
-            grid.Children.Clear();
-
-            for (var i = 0; i < Element.Children.Count; i++)
-            {
-                var segmentButton = new SegmentRadioButton
-                {
-                    GroupName = radioButtonGroupName,
-                    Style = (Windows.UI.Xaml.Style)nativeControl.Resources["SegmentedRadioButtonStyle"],
-                    Content = Element.Children[i].Text,
-                    Tag = i,
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Stretch,
-                    BorderBrush = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, ""),
-                    SelectedTextColor = (SolidColorBrush)_colorConverter.Convert(Element.SelectedTextColor, null, null, ""),
-                    TintColor = (SolidColorBrush)_colorConverter.Convert(Element.TintColor, null, null, ""),
-                    DisabledColor = (SolidColorBrush)_colorConverter.Convert(Element.DisabledColor, null, null, ""),
-                    BorderThickness = i > 0 ? new Windows.UI.Xaml.Thickness(1, 0, 0, 0) : new Windows.UI.Xaml.Thickness(0, 0, 0, 0),
-                    IsEnabled = Element.IsEnabled
-                };
-
-                segmentButton.Checked += SegmentRadioButtonOnChecked;
-
-                if (i == Element.SelectedSegment)
-                {
-                    segmentButton.IsChecked = true;
-                }
-
-                grid.ColumnDefinitions.Add(new Windows.UI.Xaml.Controls.ColumnDefinition
-                {
-                    Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star),
-                });
-
-                grid.Children.Add(segmentButton);
-
-                Windows.UI.Xaml.Controls.Grid.SetColumn(segmentButton, i);
-            }
-
-            SetNativeControl(nativeControl);
         }
 
         private void SegmentRadioButtonOnChecked(object sender, RoutedEventArgs e)

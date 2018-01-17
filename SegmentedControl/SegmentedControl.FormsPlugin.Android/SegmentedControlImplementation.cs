@@ -30,36 +30,12 @@ namespace SegmentedControl.FormsPlugin.Android
 
 			if (Control == null)
 			{
-				// Instantiate the native control and assign it to the Control property with
-				// the SetNativeControl method
-			}
+                // Instantiate the native control and assign it to the Control property with
+                // the SetNativeControl method
 
-			if (e.OldElement != null)
-			{
-				// Unsubscribe from event handlers and cleanup any resources
-
-				if (nativeControl != null)
-					nativeControl.CheckedChange -= NativeControl_ValueChanged;
-
-				if (Element != null)
-					Element.SizeChanged -= Element_SizeChanged;
-			}
-
-			if (e.NewElement != null)
-			{
-				// Configure the control and subscribe to event handlers
-
-				Element.SizeChanged += Element_SizeChanged;
-			}
-		}
-
-        void Element_SizeChanged (object sender, EventArgs e)
-		{
-            if (Control == null && Element != null)
-            {
                 var layoutInflater = LayoutInflater.From(context);
 
-                //var view = layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
+                var view = layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
                 nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
@@ -86,10 +62,23 @@ namespace SegmentedControl.FormsPlugin.Android
                 if (option != null)
                     option.Checked = true;
 
-                nativeControl.CheckedChange += NativeControl_ValueChanged;
-
                 SetNativeControl(nativeControl);
-            }
+			}
+
+			if (e.OldElement != null)
+			{
+				// Unsubscribe from event handlers and cleanup any resources
+
+				if (nativeControl != null)
+					nativeControl.CheckedChange -= NativeControl_ValueChanged;
+			}
+
+			if (e.NewElement != null)
+			{
+				// Configure the control and subscribe to event handlers
+
+                nativeControl.CheckedChange += NativeControl_ValueChanged;
+			}
 		}
 
 		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -101,7 +90,6 @@ namespace SegmentedControl.FormsPlugin.Android
 			switch (e.PropertyName)
 			{
 				case "Renderer":
-                    Element_SizeChanged(null, null);
                     Element?.SendValueChanged();
 					break;
 				case "SelectedSegment":
@@ -229,9 +217,6 @@ namespace SegmentedControl.FormsPlugin.Android
 				nativeControl = null;
 				_rb = null;
 			}
-
-			if (Element != null)
-				Element.SizeChanged -= Element_SizeChanged;
 
 			try
 			{
