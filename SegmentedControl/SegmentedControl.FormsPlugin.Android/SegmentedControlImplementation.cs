@@ -6,6 +6,8 @@ using Android.Widget;
 using Android.Views;
 using Android.Graphics.Drawables;
 using Android.Content;
+using Android.Graphics;
+using Android.Util;
 
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.Android
@@ -92,7 +94,7 @@ namespace SegmentedControl.FormsPlugin.Android
 				case "Renderer":
                     Element?.SendValueChanged();
 					break;
-				case "SelectedSegment":
+                case nameof(Element.SelectedSegment):
                     var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
 						
                     if (option != null)
@@ -129,13 +131,13 @@ namespace SegmentedControl.FormsPlugin.Android
 
 					Element.SendValueChanged();
 					break;
-				case "TintColor":
+                case nameof(Element.TintColor):
+                case nameof(Element.IsEnabled):
+                case nameof(Element.FontFamily):
+                case nameof(Element.FontSize):
                     OnPropertyChanged();
-					break;
-				case "IsEnabled":
-					OnPropertyChanged();
-					break;
-				case "SelectedTextColor":
+                    break;
+                case nameof(Element.SelectedTextColor):
                     var v = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
                     v.SetTextColor(Element.SelectedTextColor.ToAndroid());
 					break;
@@ -186,6 +188,10 @@ namespace SegmentedControl.FormsPlugin.Android
 			unselectedShape.SetStroke(3, color);
 
 			rb.Enabled = Element.IsEnabled;
+
+            var font = Font.OfSize(Element.FontFamily, Element.FontSize);
+            rb.SetTypeface(font.ToTypeface(), TypefaceStyle.Normal);
+            rb.SetTextSize(ComplexUnitType.Sp, font.ToScaledPixel());
 		}
 
 		void NativeControl_ValueChanged(object sender, RadioGroup.CheckedChangeEventArgs e)
@@ -222,8 +228,8 @@ namespace SegmentedControl.FormsPlugin.Android
 			{
 				base.Dispose(disposing);
 			}
-			catch (Exception ex)
-			{
+			catch 
+            {
 				return;
 			}
 		}
@@ -234,4 +240,5 @@ namespace SegmentedControl.FormsPlugin.Android
 			var temp = DateTime.Now;
 		}
     }
+
 }

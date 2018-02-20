@@ -27,7 +27,7 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
 ```
 
 ```xml
-<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0">
+<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" FontFamily="Courier" FontSize="16">
   <controls:SegmentedControl.Children>
     <controls:SegmentedControlOption Text="Tab 1" />
     <controls:SegmentedControlOption Text="Tab 2" />
@@ -72,15 +72,22 @@ public void Handle_ValueChanged(object o, int e)
 
 ```SelectedSegment```: Selected segment index (int, default 0).
 
+```FontFamily```: Font to use for text (string, default Helvetica).
+
+```FontSize```: Font size to use for text (float, default 15f).
+
+> FontFamily and FontSize supported on iOS and Android only
+
 **Event Handlers**
 
 ```ValueChanged```: Called when a segment is selected.
 
-#### Roadmap
-
-* Change font family/size
 
 #### Release Notes
+
+2.0.2
+
+[Android and iOS] Support for setting font and font size
 
 2.0.1
 
