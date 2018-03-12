@@ -13,12 +13,13 @@
 
 #### Usage
 
-In your iOS and Android projects call:
+In your iOS projects call:
 
 ```
 Xamarin.Forms.Init();
 SegmentedControlRenderer.Init();
 ```
+No initiailization required for Android.
 
 #### XAML
 
