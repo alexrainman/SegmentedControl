@@ -5,10 +5,19 @@
     xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
     xmlns:local="clr-namespace:Demo;assembly=Demo">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="Font" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="SFUIText-Bold"/>
+                <On Platform="Android" Value="sans-serif-thin"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+
     <StackLayout x:Name="segContainer"
                  Padding="12"
                  Spacing="12">
-        <controls:SegmentedControl x:Name="SegControl" ValueChanged="Handle_ValueChanged">
+        <controls:SegmentedControl x:Name="SegControl" ValueChanged="Handle_ValueChanged" FontFamily="{StaticResource Font}" FontSize="16">
             <controls:SegmentedControl.Children>
                 <controls:SegmentedControlOption Text="Items" />
                 <controls:SegmentedControlOption Text="Notes" />
