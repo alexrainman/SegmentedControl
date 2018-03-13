@@ -42,11 +42,11 @@ xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly
 #### Event handler
 
 ```
-public void Handle_ValueChanged(object o, int e)
+public void Handle_ValueChanged(object o, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
 {
 	SegContent.Children.Clear();
 
-	switch (e)
+	switch (e.NewValue)
 	{
 		case 0:
 			SegContent.Children.Add(new Label() { Text="Tab 1 selected" });
