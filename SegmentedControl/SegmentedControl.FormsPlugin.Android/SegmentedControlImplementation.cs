@@ -28,20 +28,44 @@ namespace SegmentedControl.FormsPlugin.Android
 		{
 			base.OnElementChanged(e);
 
-			if (Control == null)
+            var layoutInflater = LayoutInflater.From(context);
+
+            if (Control == null)
 			{
                 // Instantiate the native control and assign it to the Control property with
                 // the SetNativeControl method
-
-                var layoutInflater = LayoutInflater.From(context);
 
                 var view = layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
                 nativeControl = (RadioGroup)layoutInflater.Inflate(Resource.Layout.RadioGroup, null);
 
-                for (var i = 0; i < Element.Children.Count; i++)
+                SetNativeControl(nativeControl);
+			}
+
+			if (e.OldElement != null)
+			{
+                // Unsubscribe from event handlers and cleanup any resources
+
+                var oldElement = e.OldElement;
+                for (var i = 0; i < oldElement.Children.Count; i++)
                 {
-                    var o = Element.Children[i];
+                    var o = oldElement.Children[i];
+                    o.PropertyChanged -= Child_PropertyChanged;
+                }
+
+                if (nativeControl != null)
+					nativeControl.CheckedChange -= NativeControl_ValueChanged;
+			}
+
+			if (e.NewElement != null)
+			{
+                // Configure the control and subscribe to event handlers
+
+                var newElement = e.NewElement;
+                for (var i = 0; i < newElement.Children.Count; i++)
+                {
+                    var o = newElement.Children[i];
+                    o.PropertyChanged += Child_PropertyChanged;
                     var rb = (RadioButton)layoutInflater.Inflate(Resource.Layout.RadioButton, null);
 
                     rb.LayoutParameters = new RadioGroup.LayoutParams(0, LayoutParams.WrapContent, 1f);
@@ -57,31 +81,34 @@ namespace SegmentedControl.FormsPlugin.Android
                     nativeControl.AddView(rb);
                 }
 
-                var option = (RadioButton)nativeControl.GetChildAt(Element.SelectedSegment);
-
+                var option = (RadioButton)nativeControl.GetChildAt(newElement.SelectedSegment);
                 if (option != null)
                     option.Checked = true;
-
-                SetNativeControl(nativeControl);
-			}
-
-			if (e.OldElement != null)
-			{
-				// Unsubscribe from event handlers and cleanup any resources
-
-				if (nativeControl != null)
-					nativeControl.CheckedChange -= NativeControl_ValueChanged;
-			}
-
-			if (e.NewElement != null)
-			{
-				// Configure the control and subscribe to event handlers
 
                 nativeControl.CheckedChange += NativeControl_ValueChanged;
 			}
 		}
 
-		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void Child_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (nativeControl == null || Element == null) return;
+
+            var option = (SegmentedControl.FormsPlugin.Abstractions.SegmentedControlOption)sender;
+            switch (e.PropertyName)
+            {
+                case nameof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControlOption.Text):
+                    var index = Element.Children.IndexOf(option);
+                    if (index >= 0)
+                    {
+                        var radioButton = (RadioButton)nativeControl.GetChildAt(index);
+                        if (radioButton != null)
+                            radioButton.Text = option.Text;
+                    }
+                    break;
+            }
+        }
+
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -14,10 +15,18 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 
 		public SegmentedControl()
 		{
-			Children = new List<SegmentedControlOption>();
-		}
+            Children = new SegmentedControlOptionList(this);
+        }
 
-		public static readonly BindableProperty TintColorProperty = BindableProperty.Create("TintColor", typeof(Color), typeof(SegmentedControl), Color.Blue);
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+
+            foreach (var child in Children)
+                child.BindingContext = this.BindingContext;
+        }
+
+        public static readonly BindableProperty TintColorProperty = BindableProperty.Create("TintColor", typeof(Color), typeof(SegmentedControl), Color.Blue);
 
 		public Color TintColor
 		{
@@ -73,7 +82,25 @@ namespace SegmentedControl.FormsPlugin.Abstractions
 		}
 	}
 
-	public class ValueChangedEventArgs : EventArgs
+    public class SegmentedControlOptionList : ObservableCollection<SegmentedControlOption>
+    {
+        private readonly SegmentedControl _parent;
+
+        internal SegmentedControlOptionList(SegmentedControl parent)
+        {
+            _parent = parent;
+        }
+
+        protected override void InsertItem(int index, SegmentedControlOption item)
+        {
+            if (item.BindingContext == null)
+                item.BindingContext = _parent.BindingContext;
+            base.InsertItem(index, item);
+        }
+    }
+
+
+    public class ValueChangedEventArgs : EventArgs
     {
         public int NewValue { get; set; }
     }

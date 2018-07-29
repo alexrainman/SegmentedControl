@@ -10,12 +10,15 @@
                  Spacing="12">
         <controls:SegmentedControl x:Name="SegControl" ValueChanged="Handle_ValueChanged">
             <controls:SegmentedControl.Children>
-                <controls:SegmentedControlOption Text="Items" />
-                <controls:SegmentedControlOption Text="Notes" />
-                <controls:SegmentedControlOption Text="Approvers" />
-                <controls:SegmentedControlOption Text="Attachments" />
+                <controls:SegmentedControlOption Text="{Binding Text}" />
+                <controls:SegmentedControlOption Text="{Binding Text}" />
+                <controls:SegmentedControlOption Text="{Binding Text}" />
+                <controls:SegmentedControlOption Text="{Binding Text}" />
             </controls:SegmentedControl.Children>
         </controls:SegmentedControl>
-        <StackLayout x:Name="SegContent" />
+        <StackLayout Orientation="Vertical">
+            <StackLayout x:Name="SegContent" />
+            <Button Text="Change Text" Clicked="Handle_ChangeTextClicked" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

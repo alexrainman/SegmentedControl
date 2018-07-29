@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using SegmentedControl.FormsPlugin.iOS;
 using Xamarin.Forms.Platform.iOS;
 using UIKit;
+using System.ComponentModel;
+using SegmentedControl.FormsPlugin.Abstractions;
 
 [assembly: ExportRenderer(typeof(SegmentedControl.FormsPlugin.Abstractions.SegmentedControl), typeof(SegmentedControlRenderer))]
 namespace SegmentedControl.FormsPlugin.iOS
@@ -24,38 +26,66 @@ namespace SegmentedControl.FormsPlugin.iOS
 				// the SetNativeControl method
 
 				nativeControl = new UISegmentedControl();
-
-				for (var i = 0; i<Element.Children.Count; i++)
-				{
-					nativeControl.InsertSegment(Element.Children[i].Text, i, false);
-				}
-
-				nativeControl.Enabled = Element.IsEnabled;
-                nativeControl.TintColor = Element.IsEnabled? Element.TintColor.ToUIColor() : Element.DisabledColor.ToUIColor();
-				SetSelectedTextColor();
-
-				nativeControl.SelectedSegment = Element.SelectedSegment;
-
 				SetNativeControl(nativeControl);
 			}
 
 			if (e.OldElement != null)
 			{
-				// Unsubscribe from event handlers and cleanup any resources
+                // Unsubscribe from event handlers and cleanup any resources
 
-				if (nativeControl != null)
+                var oldElement = e.OldElement;
+                for (var i = 0; i < oldElement.Children.Count; i++)
+                {
+                    var child = oldElement.Children[i];
+                    child.PropertyChanged -= Child_PropertyChanged;
+                }
+
+                if (nativeControl != null)
 				    nativeControl.ValueChanged -= NativeControl_ValueChanged;
 			}
 
 			if (e.NewElement != null)
 			{
-				// Configure the control and subscribe to event handlers
+                // Configure the control and subscribe to event handlers
 
-				nativeControl.ValueChanged += NativeControl_ValueChanged;
+                var newElement = e.NewElement;
+                for (var i = 0; i < newElement.Children.Count; i++)
+                {
+                    var child = newElement.Children[i];
+                    child.PropertyChanged += Child_PropertyChanged;
+                    nativeControl.InsertSegment(child.Text, i, false);
+                }
+
+                nativeControl.Enabled = newElement.IsEnabled;
+                nativeControl.TintColor = newElement.IsEnabled ? newElement.TintColor.ToUIColor() : newElement.DisabledColor.ToUIColor();
+                SetSelectedTextColor();
+
+                nativeControl.SelectedSegment = newElement.SelectedSegment;
+
+                nativeControl.ValueChanged += NativeControl_ValueChanged;
 			}
 		}
 
-		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void Child_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (nativeControl == null || Element == null) return;
+
+            var option = (SegmentedControlOption)sender;
+            switch (e.PropertyName)
+            {
+                case nameof(SegmentedControlOption.Text):
+                    var index = Element.Children.IndexOf(option);
+                    if (index >= 0)
+                    {
+                        nativeControl.RemoveSegmentAtIndex(index, false);
+                        nativeControl.InsertSegment(option.Text, index, false);
+                    }
+                    break;
+            }
+        }
+
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
 
