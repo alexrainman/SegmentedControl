@@ -7,11 +7,25 @@ namespace Demo
 {
     public partial class SecondPage : ContentPage
     {
+        private readonly SecondPageViewModel viewModel;
+
         public SecondPage()
         {
             InitializeComponent();
 
+            viewModel = new SecondPageViewModel
+            {
+                Text = "Hello World!"
+            };
+
             Title = "Second Page";
+            BindingContext = viewModel;
+        }
+
+        private int counter = 0;
+        void Handle_ChangeTextClicked(object sender, System.EventArgs e)
+        {
+            viewModel.Text = (++counter).ToString();
         }
 
         void Handle_ValueChanged(object sender, SegmentedControl.FormsPlugin.Abstractions.ValueChangedEventArgs e)
