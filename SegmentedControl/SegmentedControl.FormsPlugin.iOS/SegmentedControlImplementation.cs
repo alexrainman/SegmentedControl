@@ -108,6 +108,8 @@ namespace SegmentedControl.FormsPlugin.iOS
 
 			try
 			{
+				if (disposing)
+					SetElement(null);
 				base.Dispose(disposing);
 			}
 			catch (Exception ex)
